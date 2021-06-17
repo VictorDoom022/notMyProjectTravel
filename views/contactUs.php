@@ -26,6 +26,12 @@
         include 'components/navBar.php'
     ?>
     <!-- end of nav bar section -->
+
+    <!-- start of tab secions -->
+    <?php
+        include 'components/navTabs.php'
+    ?>
+    <!-- end of tab secions -->
     
     <!-- start of contactUs title -->
     <div class="container-fluid contactUsImage">
