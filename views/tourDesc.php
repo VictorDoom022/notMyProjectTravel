@@ -1,5 +1,10 @@
 <?php
 require_once('../functions/connectDB.php');
+$id = $_GET['locationID'];
+$sql = "SELECT * FROM tourpackage WHERE id = $id";
+$result = mysqli_query($conn, $sql);
+if(mysqli_num_rows($result) > 0){
+    while($row = mysqli_fetch_assoc($result)){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +18,7 @@ require_once('../functions/connectDB.php');
     <title>Document</title>
     <style>
         .titleImage{
-            background-image: url('../assets/malacca.jpg');
+            background-image: url('<?php echo $row['pkgImageSrc']; ?>');
             height: 450px;
             background-position: 50% -125px;
             background-attachment: fixed;
@@ -51,13 +56,6 @@ require_once('../functions/connectDB.php');
     ?>
     <!-- end of tab secions -->
 
-    <?php
-        $id = $_GET['locationID'];
-        $sql = "SELECT * FROM tourpackage WHERE id = $id";
-        $result = mysqli_query($conn, $sql);
-        if(mysqli_num_rows($result) > 0){
-            while($row = mysqli_fetch_assoc($result)){
-    ?>
     <!-- start of picture section -->
     <div class="container-fluid titleImage">
         <p class="titleText text-white">
@@ -143,11 +141,11 @@ require_once('../functions/connectDB.php');
     </div>
     <!-- end of Itinerary section -->
 
-    <?php
-            }
-        }else{
-            echo "<h1 class='text-center'>Invalid Page</h1>";
-        }
-    ?>
 </body>
 </html>
+<?php
+        }
+    }else{
+        echo "<h1 class='text-center'>Invalid Page</h1>";
+    }
+?>
