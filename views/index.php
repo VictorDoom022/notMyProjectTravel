@@ -85,5 +85,45 @@
         </div>
     </div>
     <!-- end of image carousel -->
+
+    <!-- start of popular tours section -->
+    <div class="container-fluid">
+        <div class="text-center">
+            <h2>
+                Polular Travels
+            </h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-center w-90">
+                    <img class="card-img-top" src="https://image.shutterstock.com/image-vector/example-red-square-grunge-stamp-600w-327662909.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title">Image title</h5>
+                        <p class="card-text">Image description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center w-90">
+                    <img class="card-img-top" src="https://image.shutterstock.com/image-vector/example-red-square-grunge-stamp-600w-327662909.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title">Image title</h5>
+                        <p class="card-text">Image description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center w-90">
+                    <img class="card-img-top" src="https://image.shutterstock.com/image-vector/example-red-square-grunge-stamp-600w-327662909.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title">Image title</h5>
+                        <p class="card-text">Image description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of popular tours section -->
 </body>
 </html>
