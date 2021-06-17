@@ -5,7 +5,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+            <div class="navbar-nav  me-auto">
                 <a class="nav-link" aria-current="page" href="#">
                     <i class="bi bi-facebook"></i>
                 </a>
@@ -16,7 +16,7 @@
                     <i class="bi bi-question-circle"></i>
                 </a>
             </div>
-            <button class="btn btn-outline-secondary btn-md" type="submit">Login</button>
+            <a class="d-flex btn btn-outline-secondary btn-md" href="../views/login.php">Login</a>
         </div>
     </div>
 </nav>
