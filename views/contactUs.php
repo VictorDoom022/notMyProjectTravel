@@ -17,6 +17,8 @@
             background-attachment: fixed;
             background-repeat: no-repeat;
             background-size: cover;
+            background-color: rgba(37, 42, 45, 0.7);
+            background-blend-mode: multiply;
         }
     </style>
 </head>
