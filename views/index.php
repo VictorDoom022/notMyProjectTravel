@@ -1,3 +1,6 @@
+<?php
+require_once('../functions/connectDB.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,33 +81,25 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4">
-                <div class="card text-center w-90" style="cursor:pointer;" onclick="redirect(1)">
-                    <img class="card-img-top" src="../assets/bagandatok.jpg">
-                    <div class="card-body">
-                        <h5 class="card-title">2 Days 1 Night Bagan Datuk Sky Mirror</h5>
-                        <p class="card-text">RM130</p>
+            <?php
+                $sql = "SELECT * FROM tourpackage";
+                $result = mysqli_query($conn, $sql);
+                if(mysqli_num_rows($result) > 0){
+                    while($row = mysqli_fetch_assoc($result)){
+            ?>
+                <div class="col-md-4">
+                    <div class="card text-center w-90" style="cursor:pointer;" onclick="redirect(<?php echo $row['id']?>)">
+                        <img class="card-img-top" src="<?php echo $row['pkgImageSrc']?>">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $row['pkgTitle']?></h5>
+                            <p class="card-text">RM<?php echo $row['pkgPrice']?></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card text-center w-90" style="cursor:pointer;" onclick="redirect(2)">
-                    <img class="card-img-top" src="../assets/malacca.jpg">
-                    <div class="card-body">
-                        <h5 class="card-title">2 Days 1 Night Malacca - Muar</h5>
-                        <p class="card-text">RM70</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card text-center w-90" style="cursor:pointer;" onclick="redirect(3)">
-                    <img class="card-img-top" src="../assets/pulau-langkawi.jpg">
-                    <div class="card-body">
-                        <h5 class="card-title">4 Days 2 Nights Pulau Langkawi</h5>
-                        <p class="card-text">RM598</p>
-                    </div>
-                </div>
-            </div>
+            <?php
+                    }
+                }
+            ?>
         </div>
     </div>
     <!-- end of popular tours section -->
