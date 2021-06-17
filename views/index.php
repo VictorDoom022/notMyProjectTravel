@@ -47,5 +47,43 @@
         </div>
     </div>
     <!-- end of tab secions -->
+
+    <!-- start of image carousel -->
+    <div class="container-fluid">
+        <div id="carouselImageID" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block text-center w-50" style="margin-left:auto; margin-right:auto" src="https://image.shutterstock.com/image-vector/example-red-square-grunge-stamp-600w-327662909.jpg">
+                    <div class="carousel-caption d-none d-md-block text-dark">
+                        <h5>Title</h5>
+                        <p>Some captions</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block text-center w-50" style="margin-left:auto; margin-right:auto" src="https://image.shutterstock.com/image-vector/example-red-square-grunge-stamp-600w-327662909.jpg">
+                    <div class="carousel-caption d-none d-md-block text-dark">
+                        <h5>Title</h5>
+                        <p>Some captions</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block text-center w-50" style="margin-left:auto; margin-right:auto" src="https://image.shutterstock.com/image-vector/example-red-square-grunge-stamp-600w-327662909.jpg">
+                    <div class="carousel-caption d-none d-md-block text-dark">
+                        <h5>Title</h5>
+                        <p>Some captions</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselImageID" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselImageID" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- end of image carousel -->
 </body>
 </html>
