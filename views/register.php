@@ -29,8 +29,11 @@
         <div class="row justify-content-center align-item-center">
             <div class="col-md-8">
                 <div class="card text-center px-2">
-                    <h3 class="card-title">Login</h3>
+                    <h3 class="card-title">Register</h3>
                     <form action="">
+                        <p class="form-label text-start">E-mail:</p>
+                        <input type="email" class="form-control form-control-sm">
+
                         <p class="form-label text-start">Username:</p>
                         <input type="text" class="form-control form-control-sm">
 
@@ -38,10 +41,10 @@
                         <input type="password" class="form-control form-control-sm">
 
                         <button type="submit" class="btn btn-sm btn-outline-success mt-3">
-                            Login
+                            Create account
                         </button>
                     </form>
-                    <a href="register.php" class="my-3">Register</a>
+                    <a href="login.php" class="my-3">Login</a>
                 </div>
             </div>
         </div>
