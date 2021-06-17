@@ -1,3 +1,6 @@
+<?php
+require_once('../functions/connectDB.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,16 +49,27 @@
     ?>
     <!-- end of tab secions -->
 
+    <?php
+        $id = $_GET['locationID'];
+        $sql = "SELECT * FROM tourpackage WHERE id = $id";
+        $result = mysqli_query($conn, $sql);
+        if(mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_assoc($result)){
+    ?>
     <!-- start of picture section -->
     <div class="container-fluid titleImage">
-        <p class="titleText text-white">Title</p>
+        <p class="titleText text-white">
+            <?php echo $row['pkgTitle']; ?>
+        </p>
     </div>
     <!-- end of picture section -->
 
     <!-- start of overview section -->
     <div class="container-fluid mb-5">
         <p class="text-primary sectionDesc">Overview</p>
-        <p class="text-start">N Nano Travel started as a tour and travel company in 2017. The company is a professional organizer and travel planner. N Nano Travel expert in selling both group (GIT) and individual (FIT) worldwide tour packages. The company provides the experience outbound tour leaders to serve the market and clientele needs and daily Excursion Tours and Special Interest Tour for all tourists from around the world.</p>
+        <p class="text-start">
+            <?php echo $row['pkgOverview']; ?>
+        </p>
     </div>
     <!-- end of overview section -->
     
@@ -115,5 +129,12 @@
         </p>
     </div>
     <!-- end of Itinerary section -->
+
+    <?php
+            }
+        }else{
+            echo "<h1 class='text-center'>Invalid Page</h1>";
+        }
+    ?>
 </body>
 </html>
