@@ -35,7 +35,7 @@
     
     <!-- start of contactUs title -->
     <div class="container-fluid contactUsImage">
-        <p class="text-center text-light" style="font-size: 50px; font-weight: 700;">About Us</p>
+        <p class="text-center text-light" style="font-size: 50px; font-weight: 700;position:absolute; top:40%; left:50%; transform: translate(-50%, -50%);">About Us</p>
     </div>
     <!-- end of contactUs title -->
 
