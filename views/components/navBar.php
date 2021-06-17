@@ -1,6 +1,9 @@
 <nav class="navbar navbar-light navbar-expand-md bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand h1 mr-0 mb-0" href="index.php">N NANO TRAVEL & TOURS SDN BHD</a>
+        <a class="navbar-brand h1 mr-0 mb-0" href="index.php">
+            <img src="../assets/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            N NANO TRAVEL
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

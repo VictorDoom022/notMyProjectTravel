@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <title>Document</title>
+    <style>
+        .carousel-Image{
+            margin-left:auto; 
+            margin-right:auto; 
+            max-height: 350px; 
+            min-height: 350px;
+        }
+    </style>
 </head>
 <body>
     <!-- start of nav bar section -->
@@ -41,22 +49,22 @@
         <div id="carouselImageID" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block text-center w-50" style="margin-left:auto; margin-right:auto" src="https://image.shutterstock.com/image-vector/example-red-square-grunge-stamp-600w-327662909.jpg">
-                    <div class="carousel-caption d-none d-md-block text-dark">
+                    <img class="d-block text-center w-50 h-70 carousel-Image" src="../assets/slider.jpg">
+                    <div class="carousel-caption d-none d-md-block text-light">
                         <h5>Title</h5>
                         <p>Some captions</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block text-center w-50" style="margin-left:auto; margin-right:auto" src="https://image.shutterstock.com/image-vector/example-red-square-grunge-stamp-600w-327662909.jpg">
-                    <div class="carousel-caption d-none d-md-block text-dark">
+                    <img class="d-block text-center w-50 h-70 carousel-Image" src="../assets/slider2.jpg">
+                    <div class="carousel-caption d-none d-md-block text-light">
                         <h5>Title</h5>
                         <p>Some captions</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block text-center w-50" style="margin-left:auto; margin-right:auto" src="https://image.shutterstock.com/image-vector/example-red-square-grunge-stamp-600w-327662909.jpg">
-                    <div class="carousel-caption d-none d-md-block text-dark">
+                    <img class="d-block text-center w-50 h-70 carousel-Image" src="../assets/slider3.jpg">
+                    <div class="carousel-caption d-none d-md-block text-light">
                         <h5>Title</h5>
                         <p>Some captions</p>
                     </div>
@@ -78,35 +86,35 @@
     <div class="container-fluid mt-5">
         <div class="text-center">
             <h2>
-                Polular Travels
+                Popular Travels
             </h2>
         </div>
 
         <div class="row">
             <div class="col-md-4">
                 <div class="card text-center w-90">
-                    <img class="card-img-top" src="https://image.shutterstock.com/image-vector/example-red-square-grunge-stamp-600w-327662909.jpg">
+                    <img class="card-img-top" src="../assets/bagandatok.jpg">
                     <div class="card-body">
-                        <h5 class="card-title">Image title</h5>
-                        <p class="card-text">Image description</p>
+                        <h5 class="card-title">2 Day 1 Night Bagan Datuk</h5>
+                        <p class="card-text">Sky Mirror RM130</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card text-center w-90">
-                    <img class="card-img-top" src="https://image.shutterstock.com/image-vector/example-red-square-grunge-stamp-600w-327662909.jpg">
+                    <img class="card-img-top" src="../assets/malacca.jpg">
                     <div class="card-body">
-                        <h5 class="card-title">Image title</h5>
-                        <p class="card-text">Image description</p>
+                        <h5 class="card-title">2 Day 1 Night Malacca</h5>
+                        <p class="card-text">Sky Mirror RM130</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card text-center w-90">
-                    <img class="card-img-top" src="https://image.shutterstock.com/image-vector/example-red-square-grunge-stamp-600w-327662909.jpg">
+                    <img class="card-img-top" src="../assets/pulau-langkawi.jpg">
                     <div class="card-body">
-                        <h5 class="card-title">Image title</h5>
-                        <p class="card-text">Image description</p>
+                        <h5 class="card-title">2 Day 1 Night Pulau Langkawi</h5>
+                        <p class="card-text">Sky Mirror RM130</p>
                     </div>
                 </div>
             </div>
