@@ -29,7 +29,7 @@
     
     <!-- start of contactUs title -->
     <div class="container-fluid contactUsImage">
-        <p class="text-center text-light" style="font-size: 50px; font-weight: 700;">About Us</p>
+        <p class="text-center text-light" style="font-size: 50px; font-weight: 700;">Contact Us</p>
     </div>
     <!-- end of contactUs title -->
 

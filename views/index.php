@@ -35,10 +35,10 @@
                 <a href="#" class="btn btn-md">Trips</a>
             </div>
             <div class="col-md-3 text-center">
-                <a href="aboutUs.php" class="btn btn-md">About Us</a>
+                <a href="#" class="btn btn-md">About Us</a>
             </div>
             <div class="col-md-3 text-center">
-                <a href="#" class="btn btn-md">Contact Us</a>
+                <a href="contactUs.php" class="btn btn-md">Contact Us</a>
             </div>
         </div>
     </div>
@@ -86,7 +86,7 @@
     <div class="container-fluid mt-5">
         <div class="text-center">
             <h2>
-                Popular Travels
+                Popular Tours
             </h2>
         </div>
 
