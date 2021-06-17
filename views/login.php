@@ -39,5 +39,11 @@
         </div>
     </div>
     <!-- end of login card -->
+
+    <!-- start of footer section -->
+    <?php
+        include 'components/footer.php'
+    ?>
+    <!-- end of footer section -->
 </body>
 </html>
