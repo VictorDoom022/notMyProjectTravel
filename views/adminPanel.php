@@ -22,21 +22,22 @@ require_once('../functions/connectDB.php');
                 <td>Username</td>
                 <td>E-mail</td>
             </tr>
-            <tr>
+            
             <?php
                 $sql = "SELECT * FROM users";
                 $result = mysqli_query($conn, $sql);
                 if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
             ?>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['username']; ?></td>
-                <td><?php echo $row['email']; ?></td>
+                <tr>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['username']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                </tr>
             <?php
                     }
                 }
             ?>
-            </tr>
         </table>
     </div>
 </body>
