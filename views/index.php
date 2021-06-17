@@ -49,7 +49,7 @@
     <!-- end of tab secions -->
 
     <!-- start of image carousel -->
-    <div class="container-fluid">
+    <div class="container-fluid mt-5">
         <div id="carouselImageID" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -87,7 +87,7 @@
     <!-- end of image carousel -->
 
     <!-- start of popular tours section -->
-    <div class="container-fluid">
+    <div class="container-fluid mt-5">
         <div class="text-center">
             <h2>
                 Polular Travels
@@ -127,7 +127,7 @@
     <!-- end of popular tours section -->
 
     <!-- start of footer section -->
-    <div class="container-fluid bg-secondary">
+    <div class="container-fluid bg-secondary mt-5">
         <div class="row">
             <div class="col-md-3 text-white">
                 <p class="fw-bold">CompanyName</p>
