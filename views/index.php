@@ -82,8 +82,8 @@
                 <div class="card text-center w-90">
                     <img class="card-img-top" src="../assets/bagandatok.jpg">
                     <div class="card-body">
-                        <h5 class="card-title">2 Days 1 Night Bagan Datuk</h5>
-                        <p class="card-text">Sky Mirror RM130</p>
+                        <h5 class="card-title">2 Days 1 Night Bagan Datuk Sky Mirror</h5>
+                        <p class="card-text">RM130</p>
                     </div>
                 </div>
             </div>
@@ -91,8 +91,8 @@
                 <div class="card text-center w-90">
                     <img class="card-img-top" src="../assets/malacca.jpg">
                     <div class="card-body">
-                        <h5 class="card-title">2 Day 1 Night Malacca</h5>
-                        <p class="card-text">Muar RM70</p>
+                        <h5 class="card-title">2 Days 1 Night Malacca - Muar</h5>
+                        <p class="card-text">RM70</p>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                     <img class="card-img-top" src="../assets/pulau-langkawi.jpg">
                     <div class="card-body">
                         <h5 class="card-title">4 Days 2 Nights Pulau Langkawi</h5>
-                        <p class="card-text">Sky Mirror RM598</p>
+                        <p class="card-text">RM598</p>
                     </div>
                 </div>
             </div>
