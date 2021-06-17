@@ -1,6 +1,8 @@
 <?php
 include_once('connectDB.php');
 
+session_start();
+
 if(isset($_POST['login'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -22,5 +24,18 @@ if(isset($_POST['login'])){
         $stmt->close();
     }
     $conn->close();
+}
+
+if(isset($_POST['register'])){
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $sql = "INSERT INTO users(username, email, password) 
+    VALUES ('$username','$email','$password')";
+
+    mysqli_query($conn, $sql);
+    mysqli_close($conn);
+    echo "Registered successfully";
 }
 ?> 

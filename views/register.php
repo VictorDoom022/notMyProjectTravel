@@ -30,17 +30,17 @@
             <div class="col-md-8">
                 <div class="card text-center px-2">
                     <h3 class="card-title">Register</h3>
-                    <form action="">
+                    <form method="post" action="../functions/userController.php">
                         <p class="form-label text-start">E-mail:</p>
-                        <input type="email" class="form-control form-control-sm">
+                        <input type="email" name="email" class="form-control form-control-sm">
 
                         <p class="form-label text-start">Username:</p>
-                        <input type="text" class="form-control form-control-sm">
+                        <input type="text" name="username" class="form-control form-control-sm">
 
                         <p class="form-label text-start">Password:</p>
-                        <input type="password" class="form-control form-control-sm">
+                        <input type="password" name="password" class="form-control form-control-sm">
 
-                        <button type="submit" class="btn btn-sm btn-outline-success mt-3">
+                        <button type="submit" name="register" class="btn btn-sm btn-outline-success mt-3">
                             Create account
                         </button>
                     </form>
