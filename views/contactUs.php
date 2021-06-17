@@ -44,7 +44,7 @@
         <form action="">
             <div class="row px-5 mt-3">
                 <div class="col-md-6">
-                    <p class="form-label text-center">Username:</p>
+                    <p class="form-label text-center">Name:</p>
                 </div>
                 <div class="col-md-6">
                     <input type="text" class="form-control form-control-sm">
