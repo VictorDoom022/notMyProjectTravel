@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <title>Document</title>
+    <style>
+        .footer {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
 </head>
 <body>
    <!-- start of nav bar section -->
