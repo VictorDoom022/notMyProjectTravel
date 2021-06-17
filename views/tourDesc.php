@@ -66,10 +66,21 @@ require_once('../functions/connectDB.php');
 
     <!-- start of overview section -->
     <div class="container-fluid mb-5">
-        <p class="text-primary sectionDesc">Overview</p>
-        <p class="text-start">
-            <?php echo $row['pkgOverview']; ?>
-        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-primary sectionDesc">Overview</p>
+                <p class="text-start">
+                    <?php echo $row['pkgOverview']; ?>
+                </p>
+            </div>
+
+            <div class="col-md-6 mt-5 text-center">
+                <a href="#" class="btn btn-lg btn-danger">
+                    Book Now
+                    (RM<?php echo $row['pkgPrice']; ?>)
+                </a>
+            </div>
+        </div>
     </div>
     <!-- end of overview section -->
     
