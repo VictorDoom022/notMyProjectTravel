@@ -79,7 +79,7 @@
 
         <div class="row">
             <div class="col-md-4">
-                <div class="card text-center w-90">
+                <div class="card text-center w-90" style="cursor:pointer;" onclick="redirect()">
                     <img class="card-img-top" src="../assets/bagandatok.jpg">
                     <div class="card-body">
                         <h5 class="card-title">2 Days 1 Night Bagan Datuk Sky Mirror</h5>
@@ -88,7 +88,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card text-center w-90">
+                <div class="card text-center w-90" style="cursor:pointer;" onclick="redirect()">
                     <img class="card-img-top" src="../assets/malacca.jpg">
                     <div class="card-body">
                         <h5 class="card-title">2 Days 1 Night Malacca - Muar</h5>
@@ -97,7 +97,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card text-center w-90">
+                <div class="card text-center w-90" style="cursor:pointer;" onclick="redirect()">
                     <img class="card-img-top" src="../assets/pulau-langkawi.jpg">
                     <div class="card-body">
                         <h5 class="card-title">4 Days 2 Nights Pulau Langkawi</h5>
@@ -115,4 +115,9 @@
     ?>
     <!-- end of footer section -->
 </body>
+<script>
+function redirect(){
+    window.location.href = "tourDesc.php";
+}
+</script>
 </html>
