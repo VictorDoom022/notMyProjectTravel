@@ -56,7 +56,13 @@
                     <input type="email" class="form-control form-control-sm">
                 </div>
                 <div class="col-md-6">
-                    <p class="form-label text-center">Address:</p>
+                    <p class="form-label text-center">Subject:</p>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control form-control-sm">
+                </div>
+                <div class="col-md-6">
+                    <p class="form-label text-center">Message:</p>
                 </div>
                 <div class="col-md-6">
                     <textarea class="form-control form-control-sm"id="" cols="20" rows="5"></textarea>
