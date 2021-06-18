@@ -9,9 +9,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav  me-auto">
-                <a class="nav-link" aria-current="page" href="orderList.php">
-                    Booking List
-                </a>
+                <?php
+                    if(!empty($_SESSION['username'])){
+                ?>
+                    <a class="nav-link" aria-current="page" href="orderList.php">
+                        Booking List
+                    </a>
+                <?php
+                    }
+                ?>
                 <a class="nav-link" aria-current="page" href="https://www.facebook.com/n.nanotravel">
                     <i class="bi bi-facebook"></i>
                 </a>
