@@ -69,5 +69,4 @@ require_once('../functions/connectDB.php');
     ?>
     <!-- end of footer section -->
 </body>
-<script>
 </html>
