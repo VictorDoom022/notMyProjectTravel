@@ -142,6 +142,12 @@ if(mysqli_num_rows($result) > 0){
     </div>
     <!-- end of Itinerary section -->
 
+    <!-- start of footer section -->
+    <?php
+        include 'components/footer.php'
+    ?>
+    <!-- end of footer section -->
+
 </body>
 <script>
 function redirect(allowNavigate){
