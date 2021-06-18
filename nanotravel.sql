@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2021 at 07:50 PM
+-- Generation Time: Jun 18, 2021 at 07:24 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -21,6 +21,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `nanotravel`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bookinglist`
+--
+
+CREATE TABLE `bookinglist` (
+  `id` int(11) NOT NULL,
+  `pkgID` int(255) NOT NULL,
+  `userID` int(255) NOT NULL,
+  `bookDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bookinglist`
+--
+
+INSERT INTO `bookinglist` (`id`, `pkgID`, `userID`, `bookDate`) VALUES
+(6, 1, 1, '2021-06-18 05:20:52');
 
 -- --------------------------------------------------------
 
@@ -70,6 +90,12 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
 --
 
 --
+-- Indexes for table `bookinglist`
+--
+ALTER TABLE `bookinglist`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tourpackage`
 --
 ALTER TABLE `tourpackage`
@@ -86,6 +112,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `bookinglist`
+--
+ALTER TABLE `bookinglist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `tourpackage`
 --
 ALTER TABLE `tourpackage`
@@ -95,7 +127,7 @@ ALTER TABLE `tourpackage`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
