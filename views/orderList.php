@@ -64,6 +64,12 @@ require_once('../functions/connectDB.php');
                 </tr>
             <?php
                     }
+                }else{
+            ?>
+                <tr>
+                    <td colspan="4" class="text-center">No booking placed</td>
+                </tr>
+            <?php
                 }
             ?>
         </table>
@@ -86,7 +92,7 @@ function cancelBooking(bookingID){
                 'bookingID' : bookingID,
             },
             success: function(data){
-                // do nothing
+                location.reload();
             },
             error: function(){
                 // do nothing
