@@ -13,4 +13,13 @@ if(isset($_POST['book'])){
     mysqli_close($conn);
 }
 
+if(isset($_POST['cancelBook'])){
+    $bookingID = $_POST['bookingID'];
+
+    echo $sql = "DELETE FROM bookinglist WHERE id = $bookingID";
+
+    mysqli_query($conn, $sql);
+    mysqli_close($conn);
+    //header("Location: ../views/orderList.php");
+}
 ?> 
