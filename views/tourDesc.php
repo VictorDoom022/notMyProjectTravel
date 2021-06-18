@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('../functions/connectDB.php');
 $id = $_GET['locationID'];
 $sql = "SELECT * FROM tourpackage WHERE id = $id";
@@ -75,10 +76,10 @@ if(mysqli_num_rows($result) > 0){
             </div>
 
             <div class="col-md-6 mt-5 text-center">
-                <a href="#" class="btn btn-lg btn-danger">
+                <button class="btn btn-lg btn-danger" onclick="redirect(<?php if(!empty($_SESSION['username'])){ echo 'true';}else{ echo 'false';}?>)">
                     Book Now
                     (RM<?php echo $row['pkgPrice']; ?>)
-                </a>
+                </button>
             </div>
         </div>
     </div>
@@ -142,6 +143,15 @@ if(mysqli_num_rows($result) > 0){
     <!-- end of Itinerary section -->
 
 </body>
+<script>
+function redirect(allowNavigate){
+    if(allowNavigate){
+        // to redirect
+    }else{
+        alert("Log in to continue");
+    }
+}
+</script>
 </html>
 <?php
         }
