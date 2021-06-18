@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2021 at 07:24 AM
+-- Generation Time: Jun 18, 2021 at 04:20 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -32,15 +32,11 @@ CREATE TABLE `bookinglist` (
   `id` int(11) NOT NULL,
   `pkgID` int(255) NOT NULL,
   `userID` int(255) NOT NULL,
+  `bookAdultQuantity` int(20) NOT NULL,
+  `bookChildQuantity` int(20) NOT NULL,
+  `bookSetDate` varchar(255) NOT NULL,
   `bookDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `bookinglist`
---
-
-INSERT INTO `bookinglist` (`id`, `pkgID`, `userID`, `bookDate`) VALUES
-(6, 1, 1, '2021-06-18 05:20:52');
 
 -- --------------------------------------------------------
 
@@ -53,6 +49,7 @@ CREATE TABLE `tourpackage` (
   `pkgTitle` varchar(30) NOT NULL,
   `pkgOverview` varchar(255) NOT NULL,
   `pkgPrice` varchar(20) NOT NULL,
+  `pkgChildPrice` varchar(20) NOT NULL,
   `pkgImageSrc` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -60,10 +57,10 @@ CREATE TABLE `tourpackage` (
 -- Dumping data for table `tourpackage`
 --
 
-INSERT INTO `tourpackage` (`id`, `pkgTitle`, `pkgOverview`, `pkgPrice`, `pkgImageSrc`) VALUES
-(1, '2 Day 1 Night Bagan Datuk Sky ', 'N Nano Travel started as a tour and travel company in 2017. The company is a professional organizer and travel planner. N Nano Travel expert in selling both group (GIT) and individual (FIT) worldwide tour packages. The company provides the experience outb', '67.00', '../assets/bagandatok.jpg'),
-(2, '2 Days 1 Night Malacca - Muar', 'N Nano Travel started as a tour and travel company in 2017. The company is a professional organizer and travel planner. N Nano Travel expert in selling both group (GIT) and individual (FIT) worldwide tour packages. The company provides the experience outb', '70.00', '../assets/malacca.jpg'),
-(3, '4 Days 2 Nights Pulau Langkawi', 'N Nano Travel started as a tour and travel company in 2017. The company is a professional organizer and travel planner. N Nano Travel expert in selling both group (GIT) and individual (FIT) worldwide tour packages. The company provides the experience outb', '598.00', '../assets/pulau-langkawi.jpg');
+INSERT INTO `tourpackage` (`id`, `pkgTitle`, `pkgOverview`, `pkgPrice`, `pkgChildPrice`, `pkgImageSrc`) VALUES
+(1, '2 Day 1 Night Bagan Datuk Sky ', 'N Nano Travel started as a tour and travel company in 2017. The company is a professional organizer and travel planner. N Nano Travel expert in selling both group (GIT) and individual (FIT) worldwide tour packages. The company provides the experience outb', '67.00', '57.00', '../assets/bagandatok.jpg'),
+(2, '2 Days 1 Night Malacca - Muar', 'N Nano Travel started as a tour and travel company in 2017. The company is a professional organizer and travel planner. N Nano Travel expert in selling both group (GIT) and individual (FIT) worldwide tour packages. The company provides the experience outb', '70.00', '60.00', '../assets/malacca.jpg'),
+(3, '4 Days 2 Nights Pulau Langkawi', 'N Nano Travel started as a tour and travel company in 2017. The company is a professional organizer and travel planner. N Nano Travel expert in selling both group (GIT) and individual (FIT) worldwide tour packages. The company provides the experience outb', '598.00', '578.00', '../assets/pulau-langkawi.jpg');
 
 -- --------------------------------------------------------
 
@@ -115,7 +112,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookinglist`
 --
 ALTER TABLE `bookinglist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tourpackage`
