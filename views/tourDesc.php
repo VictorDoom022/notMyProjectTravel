@@ -167,7 +167,7 @@ function placeOrder(){
             'userID' : <?php if(!empty($_SESSION['user_id'])){ echo $_SESSION['user_id']; } else { echo 'null';}?>, 
         },
         success: function(data){
-            // do nothing
+            window.location.href = "orderList.php";
         },
         error: function(){
             // do nothing
