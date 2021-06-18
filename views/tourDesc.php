@@ -157,22 +157,23 @@ if(mysqli_num_rows($result) > 0){
 
 </body>
 <script>
-function placeOrder(){
-    $.ajax({
-        url: '../functions/bookingController.php',
-        type: 'POST',
-        data: { 
-            'book' : true,
-            'pkgID' : <?php echo $id; ?>,
-            'userID' : <?php if(!empty($_SESSION['user_id'])){ echo $_SESSION['user_id']; } else { echo 'null';}?>, 
-        },
-        success: function(data){
-            window.location.href = "orderList.php";
-        },
-        error: function(){
-            // do nothing
-        }
-    });
+function redirectToComfirm(){
+    var adultQuantity = parseInt(document.getElementById('adultQuantity').value);
+    var chilrenQuantity = parseInt(document.getElementById('childrenQuantity').value);
+    var bookingSetDate = document.getElementById('bookSetDate').value;
+    
+    window.location.href = "confirmOrder.php?pkgID=<?php echo $id; ?>&adultQuantity="+adultQuantity+'&childrenQuantity='+chilrenQuantity+"&bookSetDate="+ bookingSetDate;
+    console.log(bookingSetDate);
+}
+
+function calcTotal(){
+    var adultPrice = parseInt(document.getElementById('adultPrice').value);
+    var chilrenPrice = parseInt(document.getElementById('chilrenPrice').value);
+    var adultQuantity = parseInt(document.getElementById('adultQuantity').value);
+    var chilrenQuantity = parseInt(document.getElementById('childrenQuantity').value);
+
+    var total = (adultPrice * adultQuantity) + (chilrenPrice * chilrenQuantity);
+    document.getElementById('totalPrice').innerHTML = "RM" + total;
 }
 </script>
 </html>

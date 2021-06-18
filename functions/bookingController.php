@@ -5,9 +5,12 @@ session_start();
 if(isset($_POST['book'])){
     $pkgID = $_POST['pkgID'];
     $userID = $_POST['userID'];
+    $bookAdultQuantity = $_POST['bookAdultQuantity'];
+    $bookChildQuantity = $_POST['bookChildQuantity'];
+    $bookSetDate = $_POST['bookSetDate'];
 
-    $sql = "INSERT INTO bookinglist(pkgID, userID) 
-    VALUES ('$pkgID','$userID')";
+    $sql = "INSERT INTO bookinglist(pkgID, userID,bookAdultQuantity, bookChildQuantity, bookSetDate) 
+    VALUES ('$pkgID','$userID', '$bookAdultQuantity', '$bookChildQuantity', '$bookSetDate')";
 
     mysqli_query($conn, $sql);
     mysqli_close($conn);

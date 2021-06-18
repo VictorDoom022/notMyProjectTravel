@@ -1,0 +1,119 @@
+<?php
+session_start();
+require_once('../functions/connectDB.php');
+$packageID = $_GET['pkgID'];
+$adultQuantity = $_GET['adultQuantity'];
+$childrenQuantity = $_GET['childrenQuantity'];
+echo $bookSetDate = $_GET['bookSetDate'];
+
+$sql = "SELECT * FROM tourpackage WHERE id = $packageID";
+$result = mysqli_query($conn, $sql);
+if(mysqli_num_rows($result) > 0){
+    while($row = mysqli_fetch_assoc($result)){
+        $adultTotal = $row['pkgPrice'] * $adultQuantity;
+        $childrenTotal = $row['pkgChildPrice'] * $childrenQuantity;
+        $total = $adultTotal + $childrenTotal;
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .footer {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- start of nav bar section -->
+    <?php
+        include 'components/navBar.php'
+    ?>
+    <!-- end of nav bar section -->
+
+    <!-- start of tab secions -->
+    <?php
+        include 'components/navTabs.php'
+    ?>
+    <!-- end of tab secions -->
+
+    <div class="container-fluid mt-5">
+        <div class="row justify-content-center align-item-center">
+            <div class="col-md-8">
+                <div class="card text-center px-2">
+                    <h3 class="card-title">Confirm Order</h3>
+
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Type</td>
+                            <td>Price</td>
+                            <td>Quantity</td>
+                            <td>Total(RM)</td>
+                        </tr>
+                        <tr>
+                            <td>Adult</td>
+                            <td><?php echo $row['pkgPrice'] ?></td>
+                            <td><?php echo $adultQuantity ?></td>
+                            <td><?php echo $adultTotal ?></td>
+                        </tr>
+                        <tr>
+                            <td>Chilren</td>
+                            <td><?php echo $row['pkgChildPrice'] ?></td>
+                            <td><?php echo $childrenQuantity ?></td>
+                            <td><?php echo $childrenTotal ?></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-end">Total:</td>
+                            <td class="text-success"><?php echo $childrenTotal ?></td>
+                        </tr>
+                    </table>
+                    
+                    <button class="btn btn-primary" onclick="placeOrder()">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- start of footer section -->
+    <?php
+        include 'components/footer.php'
+    ?>
+    <!-- end of footer section -->
+</body>
+<script>
+function placeOrder(){
+    $.ajax({
+        url: '../functions/bookingController.php',
+        type: 'POST',
+        data: { 
+            'book' : true,
+            'pkgID' : <?php echo $packageID; ?>,
+            'userID' : <?php if(!empty($_SESSION['user_id'])){ echo $_SESSION['user_id']; } else { echo 'null';}?>, 
+            'bookAdultQuantity' : <?php echo $adultQuantity; ?>,
+            'bookChildQuantity' : <?php echo $childrenQuantity; ?>,
+            'bookSetDate' : '<?php echo $bookSetDate; ?>'
+        },
+        success: function(data){
+            window.location.href = "orderList.php";
+        },
+        error: function(){
+            // do nothing
+        }
+    });
+}
+</script>
+</html>
+<?php
+    }
+}
+?>
