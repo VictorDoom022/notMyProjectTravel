@@ -14,12 +14,12 @@ if(isset($_POST['login'])){
         if($stmt->fetch()){
             $_SESSION['user_id'] = $id;
             $_SESSION['username'] = $username;
-
-            echo 'Logged in';
-        }else{
+            echo "<script>alert('Logged in successfully');</script>";
+            echo "<script>window.location.href='../views/index.php';</script>";
+        }else{            
             echo $stmt->fetch();
-            echo "Your username or password is invalid";
-            //header("Location: ../login.php");
+            echo "<script>alert('Your username or password is invalid!');</script>";
+            echo "<script>window.location.href='../views/login.php';</script>";
         }
         $stmt->close();
     }
@@ -36,6 +36,12 @@ if(isset($_POST['register'])){
 
     mysqli_query($conn, $sql);
     mysqli_close($conn);
-    echo "Registered successfully";
+    echo "<script>alert('Registred Successfully!')</script>";
+    header("Location: ../views/login.php");
+}
+
+if(isset($_GET['logout'])){
+    session_destroy();
+    header("Location: ../views/login.php");
 }
 ?> 

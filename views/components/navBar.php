@@ -16,7 +16,18 @@
                     <i class="bi bi-instagram"></i>
                 </a>
             </div>
-            <a class="d-flex btn btn-outline-secondary btn-md" href="../views/login.php">Login</a>
+            <?php
+                if(!empty($_SESSION['username'])){
+            ?>
+                    <p class="mb-0 mx-2">Welcome,<?php echo $_SESSION['username']; ?></p>
+                    <a class="d-flex btn btn-outline-secondary btn-md" href="../functions/userController.php?logout">Logout</a>
+            <?php
+                }else{
+            ?>
+                    <a class="d-flex btn btn-outline-secondary btn-md" href="../views/login.php">Login</a>
+            <?php
+                }
+            ?>
         </div>
     </div>
 </nav>
