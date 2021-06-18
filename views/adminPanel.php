@@ -40,5 +40,47 @@ require_once('../functions/connectDB.php');
             ?>
         </table>
     </div>
+
+    <div class="container">
+        <h1 class="text-center">Booking Lists</h1>
+
+        <table class="table table-hover">
+            <tr class="table-dark">
+                <td>No.</td>
+                <td>Username</td>
+                <td>Package Name</td>
+                <td>Booking Date</td>
+                <td>Actions</td>
+            </tr>
+            
+            <?php
+                $sql = "SELECT bookinglist.id AS bookID,
+                bookinglist.bookSetDate AS bookSetDate,
+                tourpackage.pkgTitle AS pkgTitle,
+                users.username AS username
+                FROM bookinglist LEFT JOIN tourpackage ON bookinglist.pkgID = tourpackage.id LEFT JOIN users ON users.id = bookingList.userID";
+                $result = mysqli_query($conn, $sql);
+                if(mysqli_num_rows($result) > 0){
+                    while($row = mysqli_fetch_assoc($result)){
+            ?>
+                <tr>
+                    <td><?php echo $row['bookID']; ?></td>
+                    <td><?php echo $row['username']; ?></td>
+                    <td><?php echo $row['pkgTitle']; ?></td>
+                    <td><?php echo $row['bookSetDate']; ?></td>
+                    <td><button class="btn btn-sm btn-danger" onclick="cancelBooking(<?php echo $row['bookID']; ?>)">Delete</button></td>
+                </tr>
+            <?php
+                    }
+                }else{
+            ?>
+                <tr>
+                    <td colspan="4" class="text-center">No booking placed</td>
+                </tr>
+            <?php
+                }
+            ?>
+        </table>
+    </div>
 </body>
 </html>

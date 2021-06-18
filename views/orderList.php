@@ -49,7 +49,7 @@ require_once('../functions/connectDB.php');
             
             <?php
                 $sql = "SELECT bookinglist.id AS bookID,
-                bookinglist.bookDate AS bookDate,
+                bookinglist.bookSetDate AS bookSetDate,
                 tourpackage.pkgTitle AS pkgTitle
                 FROM bookinglist LEFT JOIN tourpackage ON bookinglist.pkgID = tourpackage.id WHERE userID =".$_SESSION['user_id'];
                 $result = mysqli_query($conn, $sql);
@@ -59,7 +59,7 @@ require_once('../functions/connectDB.php');
                 <tr>
                     <td><?php echo $row['bookID']; ?></td>
                     <td><?php echo $row['pkgTitle']; ?></td>
-                    <td><?php echo $row['bookDate']; ?></td>
+                    <td><?php echo $row['bookSetDate']; ?></td>
                     <td><button class="btn btn-sm btn-danger" onclick="cancelBooking(<?php echo $row['bookID']; ?>)">Cancel Booking</button></td>
                 </tr>
             <?php
