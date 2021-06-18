@@ -15,6 +15,7 @@ if(mysqli_num_rows($result) > 0){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <title>Document</title>
     <style>
@@ -76,7 +77,7 @@ if(mysqli_num_rows($result) > 0){
             </div>
 
             <div class="col-md-6 mt-5 text-center">
-                <button class="btn btn-lg btn-danger" onclick="redirect(<?php if(!empty($_SESSION['username'])){ echo 'true';}else{ echo 'false';}?>)">
+                <button class="btn btn-lg btn-danger" data-bs-toggle="modal" data-bs-target="#orderModal">
                     Book Now
                     (RM<?php echo $row['pkgPrice']; ?>)
                 </button>
@@ -148,14 +149,30 @@ if(mysqli_num_rows($result) > 0){
     ?>
     <!-- end of footer section -->
 
+    <!-- start of footer section -->
+    <?php
+        include 'orderModal.php'
+    ?>
+    <!-- end of footer section -->
+
 </body>
 <script>
-function redirect(allowNavigate){
-    if(allowNavigate){
-        // to redirect
-    }else{
-        alert("Log in to continue");
-    }
+function placeOrder(){
+    $.ajax({
+        url: '../functions/bookingController.php',
+        type: 'POST',
+        data: { 
+            'book' : true,
+            'pkgID' : <?php echo $id; ?>,
+            'userID' : <?php echo $_SESSION['user_id']; ?>, 
+        },
+        success: function(data){
+            // do nothing
+        },
+        error: function(){
+            // do nothing
+        }
+    });
 }
 </script>
 </html>
