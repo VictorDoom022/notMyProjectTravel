@@ -1,16 +1,16 @@
 <div class="container-fluid bg-light">
     <div class="row">
         <div class="col-md-3 text-center">
-            <a href="#" class="btn btn-md">Home</a>
+            <a href="index.php" class="btn btn-md shadow-none">Home</a>
         </div>
         <div class="col-md-3 text-center">
-            <a href="#" class="btn btn-md">Trips</a>
+            <a href="#" class="btn btn-md shadow-none">Trips</a>
         </div>
         <div class="col-md-3 text-center">
-            <a href="aboutUs.php" class="btn btn-md">About Us</a>
+            <a href="aboutUs.php" class="btn btn-md shadow-none">About Us</a>
         </div>
         <div class="col-md-3 text-center">
-            <a href="contactUs.php" class="btn btn-md">Contact Us</a>
+            <a href="contactUs.php" class="btn btn-md shadow-none">Contact Us</a>
         </div>
     </div>
 </div>
