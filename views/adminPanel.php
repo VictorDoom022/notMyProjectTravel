@@ -93,7 +93,7 @@ require_once('../functions/connectDB.php');
                     <td>
                         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#moreDetailsID<?php echo $row['bookID']; ?>">More Details</button>
                         <button class="btn btn-sm btn-danger" onclick="deleteBooking(<?php echo $row['bookID']; ?>)">Delete</button>
-                        <button class="btn btn-sm btn-success" onclick="approveBooking(<?php echo $row['bookID']; ?>)">Approve</button>
+                        <button class="btn btn-sm btn-success" onclick="toggleBooking(<?php echo $row['bookID']; ?>, <?php echo $row['bookApprove'] ?>)">Approve/Not Approve</button>
                     </td>
                 </tr>
 
@@ -199,7 +199,8 @@ function deleteBooking(bookingID){
     }
 }
 
-function approveBooking(bookingID){
+function toggleBooking(bookingID, bookStatus){
+    var bookStatusCode = bookStatus==0||bookStatus==2 ? 1 :2; 
     if(confirm('Are you sure you want to approve?')){
         $.ajax({
             url: '../functions/bookingController.php',
@@ -207,6 +208,7 @@ function approveBooking(bookingID){
             data: { 
                 'approveBook' : true,
                 'bookingID' : bookingID,
+                'bookStatusCode' : bookStatusCode
             },
             success: function(data){
                location.reload();

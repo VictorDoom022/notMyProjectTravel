@@ -34,8 +34,9 @@ if(isset($_POST['cancelBook'])){
 
 if(isset($_POST['approveBook'])){
     $bookingID = $_POST['bookingID'];
+    $bookStatusCode = $_POST['bookStatusCode'];
 
-    echo $sql = "UPDATE bookinglist SET bookApprove = 1 WHERE id = $bookingID";
+    echo $sql = "UPDATE bookinglist SET bookApprove = $bookStatusCode WHERE id = $bookingID";
 
     mysqli_query($conn, $sql);
     mysqli_close($conn);
