@@ -41,7 +41,7 @@
     </div>
     <!-- end of contactUs title -->
 
-    <div class="container-fluid mt-3">
+    <div class="container-fluid mt-3 pb-5">
         <p class="text-center" style="font-size:25px">We'll be happy to help you</p>
         <form action="">
             <div class="row px-5 mt-3">

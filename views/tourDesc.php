@@ -140,7 +140,7 @@ if(mysqli_num_rows($result) > 0){
     <!-- end of highlights section -->
 
     <!-- start of Itinerary section -->
-    <div class="container-fluid mb-5">
+    <div class="container-fluid mb-5 pb-5">
         <p class="text-primary sectionDesc">Itinerary</p>
         <div class="text-start">
             <p class="fw-bold">Day 1 Johor Bahru – Kuala Perlis</p> 

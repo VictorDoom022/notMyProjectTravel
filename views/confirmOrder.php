@@ -87,7 +87,7 @@ if(mysqli_num_rows($result) > 0){
     </div>
 
     <!-- start of additional details section -->
-    <div class="container-fluid mt-3">
+    <div class="container-fluid mt-3 pb-5">
         <div class="row justify-content-center align-item-center">
             <div class="col-md-8">
                 <div class="card text-center px-2">

@@ -73,7 +73,7 @@ require_once('../functions/connectDB.php');
     <!-- end of image carousel -->
 
     <!-- start of popular tours section -->
-    <div class="container-fluid mt-5">
+    <div class="container-fluid mt-5 pb-5">
         <div class="text-center">
             <h2>
                 Popular Tours
