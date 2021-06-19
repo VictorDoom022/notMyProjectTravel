@@ -16,8 +16,8 @@ if(isset($_POST['book'])){
     $address = $_POST['address'];
     $paymentMethod = $_POST['paymentMethod'];
 
-    $sql = "INSERT INTO bookinglist(pkgID, userID,bookAdultQuantity, bookChildQuantity, bookSetDate, bookFirstName, bookLastName, bookBirthDate, bookNric, bookPhoneNumber, bookAddress, bookPaymentMethod) 
-    VALUES ('$pkgID','$userID', '$bookAdultQuantity', '$bookChildQuantity', '$bookSetDate', '$firstName', '$lastName', '$birthDate', '$nric', '$phoneNumber', '$address', '$paymentMethod')";
+    $sql = "INSERT INTO bookinglist(pkgID, userID,bookAdultQuantity, bookChildQuantity, bookSetDate, bookFirstName, bookLastName, bookBirthDate, bookNric, bookPhoneNumber, bookAddress, bookPaymentMethod, bookApprove) 
+    VALUES ('$pkgID','$userID', '$bookAdultQuantity', '$bookChildQuantity', '$bookSetDate', '$firstName', '$lastName', '$birthDate', '$nric', '$phoneNumber', '$address', '$paymentMethod', 0)";
 
     mysqli_query($conn, $sql);
     mysqli_close($conn);
@@ -26,7 +26,16 @@ if(isset($_POST['book'])){
 if(isset($_POST['cancelBook'])){
     $bookingID = $_POST['bookingID'];
 
-    echo $sql = "DELETE FROM bookinglist WHERE id = $bookingID";
+    $sql = "DELETE FROM bookinglist WHERE id = $bookingID";
+
+    mysqli_query($conn, $sql);
+    mysqli_close($conn);
+}
+
+if(isset($_POST['approveBook'])){
+    $bookingID = $_POST['bookingID'];
+
+    echo $sql = "UPDATE bookinglist SET bookApprove = 1 WHERE id = $bookingID";
 
     mysqli_query($conn, $sql);
     mysqli_close($conn);
