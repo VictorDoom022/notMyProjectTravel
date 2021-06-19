@@ -99,30 +99,30 @@ function sendMessage(){
 
     if(allowNavigate){
         $.ajax({
-        url: '../functions/inquiriesController.php',
-        type: 'POST',
-        data: { 
-            'inquiry' : true,
-            'name' : name,
-            'email' : email, 
-            'subject' : subject,
-            'message' : message,
-        },
-        success: function(data){
-            swal({
-                icon: "success",
-                title: "Success",
-                text: "Send successfully",
-                timer: 1500,
-                buttons: false,
-            }).then(function(){
-                location.reload();
-            });
-        },
-        error: function(){
-            // do nothing
-        }
-    });
+            url: '../functions/inquiriesController.php',
+            type: 'POST',
+            data: { 
+                'inquiry' : true,
+                'name' : name,
+                'email' : email, 
+                'subject' : subject,
+                'message' : message,
+            },
+            success: function(data){
+                swal({
+                    icon: "success",
+                    title: "Success",
+                    text: "Send successfully",
+                    timer: 1500,
+                    buttons: false,
+                }).then(function(){
+                    location.reload();
+                });
+            },
+            error: function(){
+                // do nothing
+            }
+        });
     }else{
         swal({
             icon: "error",
