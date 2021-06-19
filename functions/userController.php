@@ -14,7 +14,6 @@ if(isset($_POST['login'])){
         if($stmt->fetch()){
             $_SESSION['user_id'] = $id;
             $_SESSION['username'] = $username;
-            echo "<script>alert('Logged in successfully');</script>";
             if($username == 'admin'){
                 echo "<script>window.location.href='../views/adminPanel.php';</script>";
             }else{

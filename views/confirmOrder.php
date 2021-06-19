@@ -115,12 +115,12 @@ if(mysqli_num_rows($result) > 0){
                                 <p class="form-text">exmaple: 00061901xxxx</p>
                             </div>
                             <div class="col-md-6 text-start">
-                                <label>Address</label>
-                                <textarea name="address" id="address" class="form-control" id="" cols="30" rows="5"></textarea>
-                            </div>
-                            <div class="col-md-6 text-start">
                                 <label>Birth Date</label>
                                 <input type="date" class="form-control" id="birthDate" name="birthDate" placeholder="Birth Date">
+                            </div>
+                            <div class="col-md-6 text-start">
+                                <label>Address</label>
+                                <textarea name="address" id="address" class="form-control" id="" cols="30" rows="5"></textarea>
                             </div>
 
                             <div class="col-md-12 justify-content-center my-3">
