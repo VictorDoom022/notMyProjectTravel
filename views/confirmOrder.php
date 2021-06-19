@@ -147,7 +147,6 @@ if(mysqli_num_rows($result) > 0){
                 <p>Select a payment method</p>
                 <select class="form-control" name="paymentMehod" id="paymentMethod">
                     <option value="onlineBanking">Online Banking</option>
-                    <option value="TNG">Touch N Go</option>
                     <option value="credit/debitCard">Credit/Debit Card</option>
                 </select>
             </div>
