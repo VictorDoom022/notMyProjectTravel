@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <title>Document</title>
     <style>
@@ -49,28 +50,28 @@
                     <p class="form-label text-center">Name:</p>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control form-control-sm">
+                    <input type="text" id="name" name="name" class="form-control form-control-sm">
                 </div>
                 <div class="col-md-6">
                     <p class="form-label text-center">Email:</p>
                 </div>
                 <div class="col-md-6">
-                    <input type="email" class="form-control form-control-sm">
+                    <input type="email" id="email" name="email" class="form-control form-control-sm">
                 </div>
                 <div class="col-md-6">
                     <p class="form-label text-center">Subject:</p>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control form-control-sm">
+                    <input type="text" id="subject" name="subject" class="form-control form-control-sm">
                 </div>
                 <div class="col-md-6">
                     <p class="form-label text-center">Message:</p>
                 </div>
                 <div class="col-md-6">
-                    <textarea class="form-control form-control-sm"id="" cols="20" rows="5"></textarea>
+                    <textarea class="form-control form-control-sm" id="message" name="message" cols="20" rows="5"></textarea>
                 </div>
                 <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-sm btn-outline-success mt-3">
+                    <button type="submit" onclick="sendMessage()" class="btn btn-sm btn-outline-success mt-3">
                         Submit
                     </button>
                 </div>
@@ -84,4 +85,30 @@
     ?>
     <!-- end of footer section -->
 </body>
+<script>
+function sendMessage(){
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var subject = document.getElementById('subject').value;
+    var message = document.getElementById('message').value;
+
+    $.ajax({
+        url: '../functions/inquiriesController.php',
+        type: 'POST',
+        data: { 
+            'inquiry' : true,
+            'name' : name,
+            'email' : email, 
+            'subject' : subject,
+            'message' : message,
+        },
+        success: function(data){
+            alert('sent!');
+        },
+        error: function(){
+            // do nothing
+        }
+    });
+}
+</script>
 </html>
