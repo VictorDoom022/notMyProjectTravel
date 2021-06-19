@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2021 at 02:16 PM
+-- Generation Time: Jun 19, 2021 at 05:18 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -49,6 +49,20 @@ CREATE TABLE `bookinglist` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `inquiries`
+--
+
+CREATE TABLE `inquiries` (
+  `id` int(11) NOT NULL,
+  `iqName` varchar(30) NOT NULL,
+  `iqEmail` varchar(30) NOT NULL,
+  `iqSubject` varchar(100) NOT NULL,
+  `iqMessage` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tourpackage`
 --
 
@@ -88,8 +102,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
-(1, 'test', 'test@test', '123'),
-(4, 'admin', 'admin@admin.com', 'admin');
+(1, 'test', 'test@test.com', '202cb962ac59075b964b07152d234b70'),
+(2, 'admin', 'admin@admin.com', '21232f297a57a5a743894a0e4a801fc3');
 
 --
 -- Indexes for dumped tables
@@ -99,6 +113,12 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
 -- Indexes for table `bookinglist`
 --
 ALTER TABLE `bookinglist`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `inquiries`
+--
+ALTER TABLE `inquiries`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -121,7 +141,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookinglist`
 --
 ALTER TABLE `bookinglist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `inquiries`
+--
+ALTER TABLE `inquiries`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tourpackage`
@@ -133,7 +159,7 @@ ALTER TABLE `tourpackage`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
