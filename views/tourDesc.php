@@ -161,9 +161,21 @@ function redirectToComfirm(){
     var adultQuantity = parseInt(document.getElementById('adultQuantity').value);
     var chilrenQuantity = parseInt(document.getElementById('childrenQuantity').value);
     var bookingSetDate = document.getElementById('bookSetDate').value;
+    var toAllowRedirect = true;
+
+    if(adultQuantity==0 && chilrenQuantity==0){
+        alert('Please fill in the quantities');
+        toAllowRedirect = false;
+    }
+
+    if(bookingSetDate==null){
+        alert('Please fill in the date');
+        toAllowRedirect = false;
+    }
     
-    window.location.href = "confirmOrder.php?pkgID=<?php echo $id; ?>&adultQuantity="+adultQuantity+'&childrenQuantity='+chilrenQuantity+"&bookSetDate="+ bookingSetDate;
-    console.log(bookingSetDate);
+    if(toAllowRedirect){
+        window.location.href = "confirmOrder.php?pkgID=<?php echo $id; ?>&adultQuantity="+adultQuantity+'&childrenQuantity='+chilrenQuantity+"&bookSetDate="+ bookingSetDate;
+    }
 }
 
 function calcTotal(){

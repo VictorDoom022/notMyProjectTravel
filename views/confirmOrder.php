@@ -111,7 +111,7 @@ if(mysqli_num_rows($result) > 0){
                             </div>
 
                             <div class="col-md-12 justify-content-center my-3">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">
+                                <button type="button" class="btn btn-primary" onclick="showModal()">
                                     Next
                                 </button>
                             </div>
@@ -155,6 +155,28 @@ if(mysqli_num_rows($result) > 0){
     <!-- end of footer section -->
 </body>
 <script>
+function showModal(){
+    var firstName = document.getElementById('firstName').value;
+    var lastName = document.getElementById('lastName').value;
+    var birthDate = document.getElementById('birthDate').value;
+    var nric = document.getElementById('nric').value;
+    var phoneNumber = document.getElementById('phoneNumber').value;
+    var address = document.getElementById('address').value;
+    var allowNavigate = true;
+
+    firstName=='' ? allowNavigate = false : allowNavigate = true;
+    lastName=='' ? allowNavigate = false : allowNavigate = true;
+    birthDate=='' ? allowNavigate = false : allowNavigate = true;
+    nric=='' ? allowNavigate = false : allowNavigate = true;
+    phoneNumber=='' ? allowNavigate = false : allowNavigate = true;
+    address=='' ? allowNavigate = false : allowNavigate = true;
+
+    if(allowNavigate){
+        $('#paymentMethodModal').modal('show');
+    }else{
+        alert('Please fill all the required fields');
+    }
+}
 function placeOrder(){
     var firstName = document.getElementById('firstName').value;
     var lastName = document.getElementById('lastName').value;
