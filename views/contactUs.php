@@ -90,8 +90,15 @@ function sendMessage(){
     var email = document.getElementById('email').value;
     var subject = document.getElementById('subject').value;
     var message = document.getElementById('message').value;
+    var allowNavigate = true;
 
-    $.ajax({
+    name=='' ? allowNavigate = false : allowNavigate = true;
+    email=='' ? allowNavigate = false : allowNavigate = true;
+    subject=='' ? allowNavigate = false : allowNavigate = true;
+    message=='' ? allowNavigate = false : allowNavigate = true;
+
+    if(allowNavigate){
+        $.ajax({
         url: '../functions/inquiriesController.php',
         type: 'POST',
         data: { 
@@ -116,6 +123,17 @@ function sendMessage(){
             // do nothing
         }
     });
+    }else{
+        swal({
+            icon: "error",
+            title: "Error",
+            text: "Please fill up all fields",
+            timer: 1500,
+            buttons: false,
+        }).then(function(){
+            // do nothing
+        });
+    }
 }
 </script>
 </html>
