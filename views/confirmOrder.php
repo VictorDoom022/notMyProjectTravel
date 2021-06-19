@@ -68,7 +68,7 @@ if(mysqli_num_rows($result) > 0){
                         </tr>
                         <tr>
                             <td colspan="3" class="text-end">Total:</td>
-                            <td class="text-success"><?php echo $childrenTotal ?></td>
+                            <td class="text-success"><?php echo $total ?></td>
                         </tr>
                     </table>
                 </div>
