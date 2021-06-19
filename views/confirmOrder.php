@@ -4,7 +4,7 @@ require_once('../functions/connectDB.php');
 $packageID = $_GET['pkgID'];
 $adultQuantity = $_GET['adultQuantity'];
 $childrenQuantity = $_GET['childrenQuantity'];
-echo $bookSetDate = $_GET['bookSetDate'];
+$bookSetDate = $_GET['bookSetDate'];
 
 $sql = "SELECT * FROM tourpackage WHERE id = $packageID";
 $result = mysqli_query($conn, $sql);
@@ -26,12 +26,6 @@ if(mysqli_num_rows($result) > 0){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <title>Document</title>
     <style>
-        .footer {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            left: 0;
-        }
     </style>
 </head>
 <body>
@@ -77,12 +71,55 @@ if(mysqli_num_rows($result) > 0){
                             <td class="text-success"><?php echo $childrenTotal ?></td>
                         </tr>
                     </table>
-                    
-                    <button class="btn btn-primary" onclick="placeOrder()">Confirm</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- start of additional details section -->
+    <div class="container-fluid mt-3">
+        <div class="row justify-content-center align-item-center">
+            <div class="col-md-8">
+                <div class="card text-center px-2">
+                    <h3 class="card-title">Additional Details</h3>
+
+                    <form action="">
+                        <div class="row">
+                            <div class="col-md-6 text-start">
+                                <label>First Name</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name">
+                            </div>
+                            <div class="col-md-6 text-start">
+                                <label>Last Name</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+                            </div>
+                            <div class="col-md-6 text-start">
+                                <label>Birth Date</label>
+                                <input type="date" class="form-control" id="birthDate" name="birthDate" placeholder="Birth Date">
+                            </div>
+                            <div class="col-md-6 text-start">
+                                <label>NRIC No.</label>
+                                <input type="number" class="form-control" id="nric" name="nric" placeholder="NRIC">
+                            </div>
+                            <div class="col-md-6 text-start">
+                                <label>Phone Number</label>
+                                <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
+                            </div>
+                            <div class="col-md-6 text-start">
+                                <label>Address</label>
+                                <textarea name="address" id="address" class="form-control" id="" cols="30" rows="5"></textarea>
+                            </div>
+
+                            <div class="col-md-12 justify-content-center my-3">
+                                <button class="btn btn-primary" onclick="placeOrder()">Confirm</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>    
+        </div>
+    </div>
+    <!-- end of additional details section -->
 
     <!-- start of footer section -->
     <?php
@@ -92,6 +129,13 @@ if(mysqli_num_rows($result) > 0){
 </body>
 <script>
 function placeOrder(){
+    var firstName = document.getElementById('firstName').value;
+    var lastName = document.getElementById('lastName').value;
+    var birthDate = document.getElementById('birthDate').value;
+    var nric = document.getElementById('nric').value;
+    var phoneNumber = document.getElementById('phoneNumber').value;
+    var address = document.getElementById('address').value;
+
     $.ajax({
         url: '../functions/bookingController.php',
         type: 'POST',
@@ -101,7 +145,13 @@ function placeOrder(){
             'userID' : <?php if(!empty($_SESSION['user_id'])){ echo $_SESSION['user_id']; } else { echo 'null';}?>, 
             'bookAdultQuantity' : <?php echo $adultQuantity; ?>,
             'bookChildQuantity' : <?php echo $childrenQuantity; ?>,
-            'bookSetDate' : '<?php echo $bookSetDate; ?>'
+            'bookSetDate' : '<?php echo $bookSetDate; ?>',
+            'firstName' : firstName,
+            'lastName' : lastName,
+            'birthDate' : birthDate,
+            'nric' : nric,
+            'phoneNumber' : phoneNumber,
+            'address' : address,
         },
         success: function(data){
             window.location.href = "orderList.php";

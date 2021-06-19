@@ -8,9 +8,15 @@ if(isset($_POST['book'])){
     $bookAdultQuantity = $_POST['bookAdultQuantity'];
     $bookChildQuantity = $_POST['bookChildQuantity'];
     $bookSetDate = $_POST['bookSetDate'];
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $birthDate = $_POST['birthDate'];
+    $nric = $_POST['nric'];
+    $phoneNumber = $_POST['phoneNumber'];
+    $address = $_POST['address'];
 
-    $sql = "INSERT INTO bookinglist(pkgID, userID,bookAdultQuantity, bookChildQuantity, bookSetDate) 
-    VALUES ('$pkgID','$userID', '$bookAdultQuantity', '$bookChildQuantity', '$bookSetDate')";
+    $sql = "INSERT INTO bookinglist(pkgID, userID,bookAdultQuantity, bookChildQuantity, bookSetDate, bookFirstName, bookLastName, bookBirthDate, bookNric, bookPhoneNumber, bookAddress) 
+    VALUES ('$pkgID','$userID', '$bookAdultQuantity', '$bookChildQuantity', '$bookSetDate', '$firstName', '$lastName', '$birthDate', '$nric', '$phoneNumber', '$address')";
 
     mysqli_query($conn, $sql);
     mysqli_close($conn);
