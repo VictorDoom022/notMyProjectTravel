@@ -45,7 +45,7 @@ if(mysqli_num_rows($result) > 0){
         }
     </style>
 </head>
-<body>
+<body class="bg-light">
     <!-- start of nav bar section -->
     <?php
         include 'components/navBar.php'
@@ -95,13 +95,16 @@ if(mysqli_num_rows($result) > 0){
                 <p class="text-success">What is included in the tour</p>
                 <div class="list-group">
                     <div class="list-group-item">
-                        List one
+                        Air-con coach tour + Langkawi ferry tickets
                     </div>
                     <div class="list-group-item">
-                        List two
+                        2 nights hotel accomodation
                     </div>
                     <div class="list-group-item">
-                        List three
+                        2 breakfast,1 lunch, 1 dinner
+                    </div>
+                    <div class="list-group-item">
+                        Tour Guide/Leader Service
                     </div>
                 </div>
             </div>
@@ -110,13 +113,16 @@ if(mysqli_num_rows($result) > 0){
                 <p class="text-danger">What is NOT included in the tour</p>
                 <div class="list-group">
                     <div class="list-group-item">
-                        List one
+                        Entrance tickets
                     </div>
                     <div class="list-group-item">
-                        List two
+                        Travel insurance
                     </div>
                     <div class="list-group-item">
-                        List three
+                        Personal expenses
+                    </div>
+                    <div class="list-group-item">
+                        Guide/Leader/Driver Tipping
                     </div>
                 </div>
             </div>
@@ -127,9 +133,9 @@ if(mysqli_num_rows($result) > 0){
     <!-- start of highlights section -->
     <div class="container-fluid mb-5">
         <p class="sectionTitle text-dark fw-lighter mb-0">HIGHLIGHTS</p>
-        <p class="text-primary sectionDesc">What we'll give. What we won't</p>
+        <p class="text-primary sectionDesc">What makes this tour special</p>
         <p class="text-start">
-            N Nano Travel started as a tour and travel company in 2017. The company is a professional organizer and travel planner. N Nano Travel expert in selling both group (GIT) and individual (FIT) worldwide tour packages. The company provides the experience outbound tour leaders to serve the market and clientele needs and daily Excursion Tours and Special Interest Tour for all tourists from around the world.
+            Eagle Square + Galeria Perdana + Kota Mahsuri + Under Water World + Atma Batik Village + Telaga Harbour + The Loaf Bread Shop + Oriental Village
         </p>
     </div>
     <!-- end of highlights section -->
@@ -137,9 +143,16 @@ if(mysqli_num_rows($result) > 0){
     <!-- start of Itinerary section -->
     <div class="container-fluid mb-5">
         <p class="text-primary sectionDesc">Itinerary</p>
-        <p class="text-start">
-            N Nano Travel started as a tour and travel company in 2017. The company is a professional organizer and travel planner. N Nano Travel expert in selling both group (GIT) and individual (FIT) worldwide tour packages. The company provides the experience outbound tour leaders to serve the market and clientele needs and daily Excursion Tours and Special Interest Tour for all tourists from around the world.
-        </p>
+        <div class="text-start">
+            <p class="fw-bold">Day 1 Johor Bahru – Kuala Perlis</p> 
+            Evening, assemble & pick up at designated point. Depart for Langkawi by air-con coach. Overnight in the coach.
+            <p class="fw-bold mt-1">Day 2 Kuala Perlis - Langkawi (Lunch, Dinner) </p> 
+            Morning, arrives at jetty and aboard ferry to Langkawi Island. Langkawi known as the Jewel of Kedah, is an archipelago of 99 islands in the Andaman sea. It has good beaches, abundant marine life & an idyllic retreat from the urban jungle. Island tour features: Eagle Square, the majestic eagle is strategically positioned to welcome visitors to Langkawi, Galeria Perdana, Kota Mahsuri, Under Water World, Atma Batik Village, Telaga Harbour. Also visit to “The Loaf Bread Shop” which own by Malaysia Ex-Prime Minister Dr. Mahathir for a relaxing teatime. Then proceed to Oriental Village. You can enjoy panoramic view of Langkawi Island after taking Cable Car (own expenses) up to Mt. Mat Chin Chiang, also experience the World Famous Sky Bridge on the Hill (own expenses). Check in Hotel. Evening time, visit to Pantai Cenang shopping street to shop around & eat around (own arrangement).
+            <p class="fw-bold mt-1">Day 3 Langkawi (Breakfast)</p> 
+            breakfast, free activity. Friends who love sea may choose to enjoy the pleasant scenery through Paya Island snorkeling (own expense). Or you may choose to experience eagle feeding trip. Furthermore, you can also rent a car or a bike & tour around the island. Besides, Langkawi is duty-free island, don’t miss your shopping opportunity. 
+            <p class="fw-bold mt-1">Day 4 Langkawi - Ipoh - Johor Bahru (Breakfast)</p>  
+            After breakfast, depart from Langkawi and starts journey return to Johor. Enroute, stop over at Ipoh for local products shopping, you can have a good taste for local food.
+        </div>
     </div>
     <!-- end of Itinerary section -->
 

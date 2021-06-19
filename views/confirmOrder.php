@@ -28,7 +28,7 @@ if(mysqli_num_rows($result) > 0){
     <style>
     </style>
 </head>
-<body>
+<body class="bg-light">
     <!-- start of nav bar section -->
     <?php
         include 'components/navBar.php'

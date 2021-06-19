@@ -23,7 +23,7 @@ require_once('../functions/connectDB.php');
         }
     </style>
 </head>
-<body>
+<body class="bg-light">
     <!-- start of nav bar section -->
     <?php
         include 'components/navBar.php'
