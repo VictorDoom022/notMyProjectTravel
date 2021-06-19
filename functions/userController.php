@@ -15,7 +15,11 @@ if(isset($_POST['login'])){
             $_SESSION['user_id'] = $id;
             $_SESSION['username'] = $username;
             echo "<script>alert('Logged in successfully');</script>";
-            echo "<script>window.location.href='../views/index.php';</script>";
+            if($username == 'admin'){
+                echo "<script>window.location.href='../views/adminPanel.php';</script>";
+            }else{
+                echo "<script>window.location.href='../views/index.php';</script>";
+            }
         }else{            
             echo $stmt->fetch();
             echo "<script>alert('Your username or password is invalid!');</script>";

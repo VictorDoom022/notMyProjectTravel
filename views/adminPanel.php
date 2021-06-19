@@ -119,7 +119,7 @@ function approveBooking(bookingID){
                 'bookingID' : bookingID,
             },
             success: function(data){
-               // location.reload();
+               location.reload();
             },
             error: function(){
                 // do nothing

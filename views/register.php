@@ -32,13 +32,13 @@
                     <h3 class="card-title">Register</h3>
                     <form method="post" action="../functions/userController.php">
                         <p class="form-label text-start">E-mail:</p>
-                        <input type="email" name="email" class="form-control form-control-sm">
+                        <input type="email" name="email" class="form-control form-control-sm" required>
 
                         <p class="form-label text-start">Username:</p>
-                        <input type="text" name="username" class="form-control form-control-sm">
+                        <input type="text" name="username" class="form-control form-control-sm" required>
 
                         <p class="form-label text-start">Password:</p>
-                        <input type="password" name="password" class="form-control form-control-sm">
+                        <input type="password" name="password" class="form-control form-control-sm" required>
 
                         <button type="submit" name="register" class="btn btn-sm btn-outline-success mt-3">
                             Create account

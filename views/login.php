@@ -32,10 +32,10 @@
                     <h3 class="card-title">Login</h3>
                     <form method="post" action="../functions/userController.php">
                         <p class="form-label text-start">Username:</p>
-                        <input type="text" name="username" class="form-control form-control-sm">
+                        <input type="text" name="username" class="form-control form-control-sm" required>
 
                         <p class="form-label text-start">Password:</p>
-                        <input type="password" name="password" class="form-control form-control-sm">
+                        <input type="password" name="password" class="form-control form-control-sm" required>
 
                         <button type="submit" name="login" class="btn btn-sm btn-outline-success mt-3">
                             Login
