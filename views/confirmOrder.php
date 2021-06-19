@@ -111,7 +111,9 @@ if(mysqli_num_rows($result) > 0){
                             </div>
 
                             <div class="col-md-12 justify-content-center my-3">
-                                <button class="btn btn-primary" onclick="placeOrder()">Confirm</button>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">
+                                    Next
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -120,6 +122,31 @@ if(mysqli_num_rows($result) > 0){
         </div>
     </div>
     <!-- end of additional details section -->
+
+    <!-- start of payment method modal -->
+    <div class="modal fade" id="paymentMethodModal" tabindex="-1" aria-labelledby="paymentMethodModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Select Payment Method</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Select a payment method</p>
+                <select class="form-control" name="paymentMehod" id="paymentMethod">
+                    <option value="onlineBanking">Online Banking</option>
+                    <option value="TNG">Touch N Go</option>
+                    <option value="credit/debitCard">Credit/Debit Card</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary" onclick="placeOrder()" data-bs-dismiss="modal">Confirm</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of payment method modal -->
 
     <!-- start of footer section -->
     <?php
@@ -135,6 +162,7 @@ function placeOrder(){
     var nric = document.getElementById('nric').value;
     var phoneNumber = document.getElementById('phoneNumber').value;
     var address = document.getElementById('address').value;
+    var paymentMethod = document.getElementById('paymentMethod').value;
 
     $.ajax({
         url: '../functions/bookingController.php',
@@ -152,6 +180,7 @@ function placeOrder(){
             'nric' : nric,
             'phoneNumber' : phoneNumber,
             'address' : address,
+            'paymentMethod' : paymentMethod
         },
         success: function(data){
             window.location.href = "orderList.php";
