@@ -28,7 +28,7 @@ if(!empty($_SESSION['username'])){
                     <p class="text-dark text-end" style="font-size:25px">Total: </p>
                 </div>
                 <div class="col-md-6 mt-5">
-                    <p class="text-primary text-success" id="totalPrice" style="font-size:25px">RM0</p>
+                    <p class="text-primary text-success" id="totalPrice" style="font-size:25px">RM0.00</p>
                 </div>
             </div>
         </div>

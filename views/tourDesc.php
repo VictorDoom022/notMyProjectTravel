@@ -213,7 +213,7 @@ function calcTotal(){
     var chilrenQuantity = parseInt(document.getElementById('childrenQuantity').value);
 
     var total = (adultPrice * adultQuantity) + (chilrenPrice * chilrenQuantity);
-    document.getElementById('totalPrice').innerHTML = "RM" + total;
+    document.getElementById('totalPrice').innerHTML = "RM" + total + ".00";
 }
 </script>
 </html>
