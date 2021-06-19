@@ -105,20 +105,22 @@ if(mysqli_num_rows($result) > 0){
                                 <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
                             </div>
                             <div class="col-md-6 text-start">
-                                <label>Birth Date</label>
-                                <input type="date" class="form-control" id="birthDate" name="birthDate" placeholder="Birth Date">
+                                <label>Phone Number</label>
+                                <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
+                                <p class="form-text">exmaple: 0111234567</p>
                             </div>
                             <div class="col-md-6 text-start">
                                 <label>NRIC No.</label>
                                 <input type="number" class="form-control" id="nric" name="nric" placeholder="NRIC">
-                            </div>
-                            <div class="col-md-6 text-start">
-                                <label>Phone Number</label>
-                                <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
+                                <p class="form-text">exmaple: 00061901xxxx</p>
                             </div>
                             <div class="col-md-6 text-start">
                                 <label>Address</label>
                                 <textarea name="address" id="address" class="form-control" id="" cols="30" rows="5"></textarea>
+                            </div>
+                            <div class="col-md-6 text-start">
+                                <label>Birth Date</label>
+                                <input type="date" class="form-control" id="birthDate" name="birthDate" placeholder="Birth Date">
                             </div>
 
                             <div class="col-md-12 justify-content-center my-3">
@@ -181,6 +183,16 @@ function showModal(){
     nric=='' ? allowNavigate = false : allowNavigate = true;
     phoneNumber=='' ? allowNavigate = false : allowNavigate = true;
     address=='' ? allowNavigate = false : allowNavigate = true;
+
+    if(nric.length != 12){
+        allowNavigate = false;
+        alert('Invalid IC');
+    }
+
+    if(phoneNumber.length < 9 || phoneNumber.length > 11){
+        allowNavigate = false;
+        alert('Invalid Phone number');
+    }
 
     if(allowNavigate){
         $('#paymentMethodModal').modal('show');
