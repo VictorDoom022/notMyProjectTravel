@@ -176,12 +176,28 @@ function redirectToComfirm(){
     var toAllowRedirect = true;
 
     if(adultQuantity==0 && chilrenQuantity==0){
-        alert('Please fill in the quantities');
+        swal({
+            icon: "error",
+            title: "Hold up!",
+            text: "Please fill in the quantities",
+            timer: 1500,
+            buttons: false,
+        }).then(function(){
+            // do nothing
+        });
         toAllowRedirect = false;
     }
 
     if(bookingSetDate==null){
-        alert('Please fill in the date');
+        swal({
+            icon: "error",
+            title: "Hold up!",
+            text: "Please fill in the date",
+            timer: 1500,
+            buttons: false,
+        }).then(function(){
+            // do nothing
+        });
         toAllowRedirect = false;
     }
     

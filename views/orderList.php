@@ -175,7 +175,13 @@ require_once('../functions/connectDB.php');
 </body>
 <script>
 function cancelBooking(bookingID){
-    if(confirm('Are you sure you want to cancel this booking?')){
+    swal({
+        icon: "warning",
+        title: "Warning",
+        text: "Are you sure you want to cancel this booking?",
+        buttons: true,
+        dangerMode: true,
+    }).then((confirmDelete) => {
         $.ajax({
             url: '../functions/bookingController.php',
             type: 'POST',
@@ -190,9 +196,7 @@ function cancelBooking(bookingID){
                 // do nothing
             }
         });
-    }else{
-
-    }
+    });
 }
 </script>
 </html>

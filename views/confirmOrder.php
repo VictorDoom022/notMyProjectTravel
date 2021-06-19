@@ -185,18 +185,42 @@ function showModal(){
 
     if(nric.length != 12){
         allowNavigate = false;
-        alert('Invalid IC');
+        swal({
+            icon: "error",
+            title: "Hold up!",
+            text: "Invalid NRIC number",
+            timer: 1500,
+            buttons: false,
+        }).then(function(){
+            // do nothing
+        });
     }
 
     if(phoneNumber.length < 9 || phoneNumber.length > 11){
         allowNavigate = false;
-        alert('Invalid Phone number');
+        swal({
+            icon: "error",
+            title: "Hold up!",
+            text: "Invalid Phone number",
+            timer: 1500,
+            buttons: false,
+        }).then(function(){
+            // do nothing
+        });
     }
 
     if(allowNavigate){
         $('#paymentMethodModal').modal('show');
     }else{
-        alert('Please fill all the required fields');
+        swal({
+            icon: "error",
+            title: "Hold up!",
+            text: "Please fill all the required fields",
+            timer: 1500,
+            buttons: false,
+        }).then(function(){
+            // do nothing
+        });
     }
 }
 function placeOrder(){

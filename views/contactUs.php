@@ -70,7 +70,7 @@
                     <textarea class="form-control form-control-sm" id="message" name="message" cols="20" rows="5"></textarea>
                 </div>
                 <div class="col-md-12 text-center">
-                    <button type="submit" onclick="sendMessage()" class="btn btn-sm btn-outline-success mt-3">
+                    <button type="button" onclick="sendMessage()" class="btn btn-sm btn-outline-success mt-3">
                         Submit
                     </button>
                 </div>
@@ -102,7 +102,15 @@ function sendMessage(){
             'message' : message,
         },
         success: function(data){
-            alert('sent!');
+            swal({
+                icon: "success",
+                title: "Success",
+                text: "Send successfully",
+                timer: 1500,
+                buttons: false,
+            }).then(function(){
+                location.reload();
+            });
         },
         error: function(){
             // do nothing

@@ -215,7 +215,13 @@ require_once('../functions/connectDB.php');
 </body>
 <script>
 function deleteBooking(bookingID){
-    if(confirm('Are you sure you want to delete?')){
+    swal({
+        icon: "warning",
+        title: "Warning",
+        text: "Are you sure you want to delete?",
+        buttons: true,
+        dangerMode: true,
+    }).then((confirmDelete) => {
         $.ajax({
             url: '../functions/bookingController.php',
             type: 'POST',
@@ -230,14 +236,18 @@ function deleteBooking(bookingID){
                 // do nothing
             }
         });
-    }else{
-
-    }
+    });
 }
 
 function toggleBooking(bookingID, bookStatus){
     var bookStatusCode = bookStatus==0||bookStatus==2 ? 1 :2; 
-    if(confirm('Are you sure you want to approve?')){
+    swal({
+        icon: "warning",
+        title: "Warning",
+        text: "Are you sure you want to approve / not approve?",
+        buttons: true,
+        dangerMode: true,
+    }).then((confirmDelete) => {
         $.ajax({
             url: '../functions/bookingController.php',
             type: 'POST',
@@ -253,9 +263,7 @@ function toggleBooking(bookingID, bookStatus){
                 // do nothing
             }
         });
-    }else{
-
-    }
+    });
 }
 </script>
 </html>
