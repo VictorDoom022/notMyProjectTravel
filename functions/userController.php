@@ -6,9 +6,10 @@ session_start();
 if(isset($_POST['login'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $encryptedPassowrd = md5($password);
 
     if($stmt = $conn->prepare("SELECT id, username FROM users WHERE username=? AND password=?")){
-        $stmt->bind_param("ss",$username,$password);
+        $stmt->bind_param("ss",$username,$encryptedPassowrd);
         $stmt->execute();
         $stmt->bind_result($id, $username);
         if($stmt->fetch()){
@@ -33,9 +34,10 @@ if(isset($_POST['register'])){
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $encryptedPassowrd = md5($password);
 
     $sql = "INSERT INTO users(username, email, password) 
-    VALUES ('$username','$email','$password')";
+    VALUES ('$username','$email','$encryptedPassowrd')";
 
     mysqli_query($conn, $sql);
     mysqli_close($conn);
