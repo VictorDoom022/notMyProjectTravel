@@ -25,13 +25,15 @@ require_once('../functions/connectDB.php');
             </tr>
             
             <?php
+                $count = 0;
                 $sql = "SELECT * FROM users";
                 $result = mysqli_query($conn, $sql);
                 if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
+                        $count ++;
             ?>
                 <tr>
-                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $count; ?></td>
                     <td><?php echo $row['username']; ?></td>
                     <td><?php echo $row['email']; ?></td>
                 </tr>
@@ -56,6 +58,7 @@ require_once('../functions/connectDB.php');
             </tr>
             
             <?php
+                $count = 0;
                 $sql = "SELECT bookinglist.id AS bookID,
                 bookinglist.bookSetDate AS bookSetDate,
                 tourpackage.pkgTitle AS pkgTitle,
@@ -74,6 +77,7 @@ require_once('../functions/connectDB.php');
                 $result = mysqli_query($conn, $sql);
                 if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
+                        $count++;
                         $name = ($row['firstName'] . ' ' . $row['lastName']);
                         $approveStatus = "";
                         if($row['bookApprove'] == 0){
@@ -85,7 +89,7 @@ require_once('../functions/connectDB.php');
                         }
             ?>
                 <tr>
-                    <td><?php echo $row['bookID']; ?></td>
+                    <td><?php echo $count; ?></td>
                     <td><?php echo $row['username']; ?></td>
                     <td><?php echo $row['pkgTitle']; ?></td>
                     <td><?php echo $row['bookSetDate']; ?></td>
@@ -169,7 +173,7 @@ require_once('../functions/connectDB.php');
                 }else{
             ?>
                 <tr>
-                    <td colspan="4" class="text-center">No booking placed</td>
+                    <td colspan="6" class="text-center">No booking placed</td>
                 </tr>
             <?php
                 }
@@ -190,13 +194,15 @@ require_once('../functions/connectDB.php');
             </tr>
             
             <?php
+                $count = 0;
                 $sql = "SELECT * FROM inquiries";
                 $result = mysqli_query($conn, $sql);
                 if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
+                        $count++;
             ?>
                 <tr>
-                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $count; ?></td>
                     <td><?php echo $row['iqName']; ?></td>
                     <td><?php echo $row['iqEmail']; ?></td>
                     <td><?php echo $row['iqSubject']; ?></td>

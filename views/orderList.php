@@ -49,6 +49,7 @@ require_once('../functions/connectDB.php');
             </tr>
             
             <?php
+                $count = 0;
                 $sql = "SELECT bookinglist.id AS bookID,
                 bookinglist.bookFirstName AS firstName,
                 bookinglist.bookLastName AS lastName,
@@ -66,6 +67,7 @@ require_once('../functions/connectDB.php');
                 $result = mysqli_query($conn, $sql);
                 if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
+                        $count++;
                         $name = ($row['firstName'] . ' ' . $row['lastName']);
                         $approveStatus = "";
                         if($row['bookApprove'] == 0){
@@ -77,7 +79,7 @@ require_once('../functions/connectDB.php');
                         }
             ?>
                 <tr>
-                    <td><?php echo $row['bookID']; ?></td>
+                    <td><?php echo $count; ?></td>
                     <td><?php echo $row['pkgTitle']; ?></td>
                     <td><?php echo $row['bookSetDate']; ?></td>
                     <td><?php echo $approveStatus; ?></td>
@@ -159,7 +161,7 @@ require_once('../functions/connectDB.php');
                 }else{
             ?>
                 <tr>
-                    <td colspan="4" class="text-center">No booking placed</td>
+                    <td colspan="5" class="text-center">No booking placed</td>
                 </tr>
             <?php
                 }
