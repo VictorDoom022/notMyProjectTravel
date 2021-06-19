@@ -51,6 +51,7 @@ require_once('../functions/connectDB.php');
                 <td>Username</td>
                 <td>Package Name</td>
                 <td>Booking Date</td>
+                <td>Status</td>
                 <td>Actions</td>
             </tr>
             
@@ -67,18 +68,28 @@ require_once('../functions/connectDB.php');
                 bookinglist.bookAddress AS address,
                 bookinglist.bookAdultQuantity AS adultQuantity,
                 bookinglist.bookChildQuantity AS childQuantity,
-                bookinglist.bookPaymentMethod AS paymentMethod
+                bookinglist.bookPaymentMethod AS paymentMethod,
+                bookinglist.bookApprove AS bookApprove
                 FROM bookinglist LEFT JOIN tourpackage ON bookinglist.pkgID = tourpackage.id LEFT JOIN users ON users.id = bookingList.userID";
                 $result = mysqli_query($conn, $sql);
                 if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
                         $name = ($row['firstName'] . ' ' . $row['lastName']);
+                        $approveStatus = "";
+                        if($row['bookApprove'] == 0){
+                            $approveStatus = "Pending";
+                        }else if($row['bookApprove'] == 1){
+                            $approveStatus = "Approved";
+                        }else if($row['bookApprove'] == 2){
+                            $approveStatus = "Not Approved";
+                        }
             ?>
                 <tr>
                     <td><?php echo $row['bookID']; ?></td>
                     <td><?php echo $row['username']; ?></td>
                     <td><?php echo $row['pkgTitle']; ?></td>
                     <td><?php echo $row['bookSetDate']; ?></td>
+                    <td><?php echo $approveStatus; ?></td>
                     <td>
                         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#moreDetailsID<?php echo $row['bookID']; ?>">More Details</button>
                         <button class="btn btn-sm btn-danger" onclick="deleteBooking(<?php echo $row['bookID']; ?>)">Delete</button>

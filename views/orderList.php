@@ -44,6 +44,7 @@ require_once('../functions/connectDB.php');
                 <td>No.</td>
                 <td>Package Name</td>
                 <td>Booking Date</td>
+                <td>Status</td>
                 <td>Actions</td>
             </tr>
             
@@ -59,17 +60,27 @@ require_once('../functions/connectDB.php');
                 bookinglist.bookChildQuantity AS childQuantity,
                 bookinglist.bookPaymentMethod AS paymentMethod,
                 bookinglist.bookSetDate AS bookSetDate,
+                bookinglist.bookApprove AS bookApprove,
                 tourpackage.pkgTitle AS pkgTitle
                 FROM bookinglist LEFT JOIN tourpackage ON bookinglist.pkgID = tourpackage.id WHERE userID =".$_SESSION['user_id'];
                 $result = mysqli_query($conn, $sql);
                 if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
                         $name = ($row['firstName'] . ' ' . $row['lastName']);
+                        $approveStatus = "";
+                        if($row['bookApprove'] == 0){
+                            $approveStatus = "Pending";
+                        }else if($row['bookApprove'] == 1){
+                            $approveStatus = "Approved";
+                        }else if($row['bookApprove'] == 2){
+                            $approveStatus = "Not Approved";
+                        }
             ?>
                 <tr>
                     <td><?php echo $row['bookID']; ?></td>
                     <td><?php echo $row['pkgTitle']; ?></td>
                     <td><?php echo $row['bookSetDate']; ?></td>
+                    <td><?php echo $approveStatus; ?></td>
                     <td>
                         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#moreDetailsID<?php echo $row['bookID']; ?>">More Details</button>
                         <button class="btn btn-sm btn-danger" onclick="cancelBooking(<?php echo $row['bookID']; ?>)">Cancel Booking</button>
