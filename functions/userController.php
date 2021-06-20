@@ -16,7 +16,7 @@ if(isset($_POST['login'])){
             $_SESSION['user_id'] = $id;
             $_SESSION['username'] = $username;
             if($username == 'admin'){
-                echo "<script>window.location.href='../views/adminPanel.php';</script>";
+                echo "<script>window.location.href='../views/admin/adminHome.php';</script>";
             }else{
                 echo "<script>window.location.href='../views/index.php';</script>";
             }
