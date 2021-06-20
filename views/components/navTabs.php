@@ -4,7 +4,7 @@
             <a href="index.php" class="btn btn-md shadow-none">Home</a>
         </div>
         <div class="col-md-3 text-center">
-            <a href="#" class="btn btn-md shadow-none">Trips</a>
+            <a href="trips.php" class="btn btn-md shadow-none">Trips</a>
         </div>
         <div class="col-md-3 text-center">
             <a href="aboutUs.php" class="btn btn-md shadow-none">About Us</a>
