@@ -214,7 +214,11 @@ function calcTotal(){
     var adultQuantity = parseInt(document.getElementById('adultQuantity').value);
     var chilrenQuantity = parseInt(document.getElementById('childrenQuantity').value);
 
+    if(adultQuantity <0) document.getElementById('adultQuantity').value = "0";
+    if(chilrenQuantity <0) document.getElementById('childrenQuantity').value = "0";   
+
     var total = (adultPrice * adultQuantity) + (chilrenPrice * chilrenQuantity);
+    if(total < 0) total = 0;
     document.getElementById('totalPrice').innerHTML = "RM" + total + ".00";
 }
 </script>
