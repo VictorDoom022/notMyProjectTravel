@@ -76,7 +76,8 @@ if(mysqli_num_rows($result) > 0){
             </div>
 
             <div class="col-md-6 mt-5 text-center">
-                <button class="btn btn-lg btn-danger" data-bs-toggle="modal" data-bs-target="#orderModal">
+                <button class="btn btn-lg btn-danger" data-bs-toggle="modal" data-bs-target="#orderModal"
+                    <?php if($row['pkgSlots'] <= 0) { echo 'disabled'; }?>>
                     Book Now
                     (RM<?php echo $row['pkgPrice']; ?>)
                 </button>
