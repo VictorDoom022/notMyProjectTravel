@@ -34,6 +34,8 @@ include_once('../../functions/checkSession.php');
                     $result = mysqli_query($conn, $sql);
                     if(mysqli_num_rows($result) > 0){
                         while($row = mysqli_fetch_assoc($result)){
+                            $overview = str_replace( '&', '&amp;', $row['pkgOverview'] );
+                            $details = str_replace( '&', '&amp;', $row['pkgDetails'] );
                             $count ++;
                 ?>
                     <tr>
@@ -62,13 +64,17 @@ include_once('../../functions/checkSession.php');
                                                 Overview:
                                             </div>
                                             <div class="col-md-9">
-                                                <?php echo $row['pkgOverview']; ?>
+                                                <textarea class="form-control" rows="10" col="10" readonly>
+                                                    <?php echo $overview; ?>
+                                                </textarea>
                                             </div>
                                             <div class="col-md-3">
                                                 Details:
                                             </div>
                                             <div class="col-md-9">
-                                                <?php echo $row['pkgDetails']; ?>
+                                                <textarea class="form-control" rows="10" col="10" readonly>
+                                                    <?php echo $details; ?>
+                                                </textarea>
                                             </div>
                                         </div>
                                     </div>
