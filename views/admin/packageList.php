@@ -46,6 +46,13 @@ include_once('../../functions/checkSession.php');
                         }
                     }
                 ?>
+                    <tr>
+                        <td colspan="5">
+                            <a href="addPackage.php" class="btn btn-primary align-items-center" style="width: 100%;">
+                                Add Package
+                            </a>
+                        </td>
+                    </tr>
             </table>
         </div>
     </div>
