@@ -82,7 +82,7 @@ require_once('../functions/connectDB.php');
 
         <div class="row">
             <?php
-                $sql = "SELECT * FROM tourpackage";
+                $sql = "SELECT * FROM tourpackage ORDER BY id ASC LIMIT 3";
                 $result = mysqli_query($conn, $sql);
                 if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
