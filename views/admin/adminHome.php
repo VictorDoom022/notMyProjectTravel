@@ -2,6 +2,14 @@
 session_start();
 require_once('../../functions/connectDB.php');
 include_once('../../functions/checkSession.php');
+
+$sql = "SELECT * FROM settings";
+$result = mysqli_query($conn, $sql);
+if(mysqli_num_rows($result) > 0){
+    while($row = mysqli_fetch_assoc($result)){
+       $_SESSION['editMode'] = $row['editMode'];
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +35,12 @@ include_once('../../functions/checkSession.php');
                         &nbsp;
                         <a href="packageList.php" class="btn btn-primary">Product Lists</a>
                         &nbsp;
+                        <?php if($_SESSION['editMode'] == 1) {?>
+                            <button onclick="toggleEdit(0)" class="btn btn-secondary">Turn OFF editing</button>
+                        <?php } else {?>
+                            <button onclick="toggleEdit(1)" class="btn btn-secondary">Turn ON editing</button>
+                        <?php }?>
+                        &nbsp;
                         <a href="../../functions/userController.php?logout" class="btn btn-danger">Log Out</a>
                     </div>
                 </div>
@@ -35,4 +49,30 @@ include_once('../../functions/checkSession.php');
     </div>
     <!-- end of login card -->
 </body>
+<script>
+function toggleEdit(statusCode){
+    swal({
+        icon: "warning",
+        title: "Warning",
+        text: "Turn on/off editing?",
+        buttons: true,
+        dangerMode: true,
+    }).then((confirmDelete) => {
+        $.ajax({
+            url: '../../functions/settingsController.php',
+            type: 'POST',
+            data: { 
+                'toogleEdit' : true,
+                'statusCode' :statusCode
+            },
+            success: function(data){
+               location.reload();
+            },
+            error: function(){
+                // do nothing
+            }
+        });
+    });
+}
+</script>
 </html>
