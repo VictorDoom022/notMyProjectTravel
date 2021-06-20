@@ -80,6 +80,7 @@ if(mysqli_num_rows($result) > 0){
                     Book Now
                     (RM<?php echo $row['pkgPrice']; ?>)
                 </button>
+                <p>Slots available: <?php echo $row['pkgSlots']; ?></p>
             </div>
         </div>
     </div>

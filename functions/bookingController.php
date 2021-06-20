@@ -19,8 +19,26 @@ if(isset($_POST['book'])){
     $sql = "INSERT INTO bookinglist(pkgID, userID,bookAdultQuantity, bookChildQuantity, bookSetDate, bookFirstName, bookLastName, bookBirthDate, bookNric, bookPhoneNumber, bookAddress, bookPaymentMethod, bookApprove) 
     VALUES ('$pkgID','$userID', '$bookAdultQuantity', '$bookChildQuantity', '$bookSetDate', '$firstName', '$lastName', '$birthDate', '$nric', '$phoneNumber', '$address', '$paymentMethod', 0)";
 
+    updateSlots($pkgID, $conn);
+
     mysqli_query($conn, $sql);
     mysqli_close($conn);
+}
+
+function updateSlots($pkgID, $conn){
+    $slotNumber = 0;
+    $getSlotsNumberSQL = "SELECT pkgSlots FROM tourpackage WHERE id = $pkgID";
+    $result = mysqli_query($conn, $getSlotsNumberSQL);
+    if(mysqli_num_rows($result) > 0){
+        while($row = mysqli_fetch_assoc($result)){
+            $slotNumber = $row['pkgSlots'];
+        }
+    }
+
+    $slotNumber += -1;
+
+    $updateSQL = "UPDATE tourpackage SET pkgSlots = $slotNumber WHERE id = $pkgID";
+    mysqli_query($conn, $updateSQL);
 }
 
 if(isset($_POST['cancelBook'])){
@@ -36,7 +54,7 @@ if(isset($_POST['approveBook'])){
     $bookingID = $_POST['bookingID'];
     $bookStatusCode = $_POST['bookStatusCode'];
 
-    echo $sql = "UPDATE bookinglist SET bookApprove = $bookStatusCode WHERE id = $bookingID";
+    $sql = "UPDATE bookinglist SET bookApprove = $bookStatusCode WHERE id = $bookingID";
 
     mysqli_query($conn, $sql);
     mysqli_close($conn);
