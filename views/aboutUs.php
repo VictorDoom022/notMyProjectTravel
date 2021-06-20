@@ -51,7 +51,7 @@
 
     <!-- start of vission and mission section -->
     <div class="container-fluid text-center my-4 pb-5">
-        <h3>Vission and Mission</h3>
+        <h3>Vision and Mission</h3>
         <p class="px-5">
             Provides our customers with the best service and make our customers feel like they are home. Do every detail well, let us pay attention to all their behaviors. Every customer served can enjoy their travel journey with the word of mouth of “N Nano Tourism World Travel”.
         </p>
