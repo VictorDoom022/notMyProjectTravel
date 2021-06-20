@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once('../functions/connectDB.php');
-include_once('../functions/checkSession.php');
+require_once('../../functions/connectDB.php');
+include_once('../../functions/checkSession.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +9,7 @@ include_once('../functions/checkSession.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <?php
-        include 'components/cdnSetup.php'
+        include '../components/cdnSetup.php'
     ?>
     <title>Document</title>
 </head>
@@ -225,7 +225,7 @@ function deleteBooking(bookingID){
         dangerMode: true,
     }).then((confirmDelete) => {
         $.ajax({
-            url: '../functions/bookingController.php',
+            url: '../../functions/bookingController.php',
             type: 'POST',
             data: { 
                 'cancelBook' : true,
@@ -251,7 +251,7 @@ function toggleBooking(bookingID, bookStatus){
         dangerMode: true,
     }).then((confirmDelete) => {
         $.ajax({
-            url: '../functions/bookingController.php',
+            url: '../../functions/bookingController.php',
             type: 'POST',
             data: { 
                 'approveBook' : true,
