@@ -26,6 +26,7 @@ include_once('../../functions/checkSession.php');
                     <td>Adult Price</td>
                     <td>Children Price</td>
                     <td>Slots Available</td>
+                    <td>Action</td>
                 </tr>
                 <?php
                     $count = 0;
@@ -41,13 +42,48 @@ include_once('../../functions/checkSession.php');
                         <td><?php echo $row['pkgPrice']; ?></td>
                         <td><?php echo $row['pkgChildPrice']; ?></td>
                         <td><?php echo $row['pkgSlots']; ?></td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#moreDetailsID<?php echo $row['id']; ?>">More Details</button>
+                        </td>
                     </tr>
+
+                    <!-- start of more details modal -->
+                        <div class="modal fade" id="moreDetailsID<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="moreDetailsLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Details</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                Overview:
+                                            </div>
+                                            <div class="col-md-9">
+                                                <?php echo $row['pkgOverview']; ?>
+                                            </div>
+                                            <div class="col-md-3">
+                                                Details:
+                                            </div>
+                                            <div class="col-md-9">
+                                                <?php echo $row['pkgDetails']; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- end of more details modal -->
                 <?php
                         }
                     }
                 ?>
                     <tr>
-                        <td colspan="5">
+                        <td colspan="6">
                             <a href="addPackage.php" class="btn btn-primary align-items-center" style="width: 100%;">
                                 Add Package
                             </a>
