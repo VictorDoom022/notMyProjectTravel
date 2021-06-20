@@ -46,8 +46,12 @@ include_once('../../functions/checkSession.php');
                         <td><?php echo $row['pkgSlots']; ?></td>
                         <td>
                             <button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#moreDetailsID<?php echo $row['id']; ?>">More Details</button>
-                            <a href="editPackageList.php?pkgID=<?php echo $row['id']; ?>" class="btn btn-sm btn-success">Edit</a>
-                            <button class="btn btn-sm btn-danger" onclick="deletePackage(<?php echo $row['id']; ?>)">Delete</button>
+                            <?php if($_SESSION['editMode'] == 1){ ?>
+                                <a href="editPackageList.php?pkgID=<?php echo $row['id']; ?>" class="btn btn-sm btn-success">Edit</a>
+                                <button class="btn btn-sm btn-danger" onclick="deletePackage(<?php echo $row['id']; ?>)">Delete</button>
+                            <?php
+                                }
+                            ?>
                         </td>
                     </tr>
 
