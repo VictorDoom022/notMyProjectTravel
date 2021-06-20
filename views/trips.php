@@ -59,7 +59,7 @@ require_once('../functions/connectDB.php');
             if(mysqli_num_rows($result) > 0){
                 while($row = mysqli_fetch_assoc($result)){
         ?>
-        <div class="card my-3" style="cursor:pointer;">
+        <div class="card my-3" onclick="redirect(<?php echo $row['id'] ?>)" style="cursor:pointer;">
             <div class="row">
                 <div class="col-md-4">
                     <img class="tripInfoImage" src="<?php echo $row['pkgImageSrc'] ?>">
@@ -86,6 +86,8 @@ require_once('../functions/connectDB.php');
     <!-- end of footer section -->
 </body>
 <script>
-
+function redirect(pkgID){
+    window.location.href = "tourDescNew.php?locationID=" + pkgID;
+}
 </script>
 </html>
