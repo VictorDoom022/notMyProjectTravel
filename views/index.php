@@ -39,23 +39,23 @@ require_once('../functions/connectDB.php');
         <div id="carouselImageID" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block text-center w-50 h-70 carousel-Image" src="../assets/slider.jpg">
+                    <img class="d-block text-center w-100 h-70 carousel-Image" src="../assets/slider.jpg">
                     <div class="carousel-caption d-none d-md-block text-light">
-                        <h3>Handpicked tours</h3>
+                        <h3 style="text-shadow: 2px 2px 5px red;">Handpicked tours</h3>
                         <p></p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block text-center w-50 h-70 carousel-Image" src="../assets/slider2.jpg">
+                    <img class="d-block text-center w-100 h-70 carousel-Image" src="../assets/slider2.jpg">
                     <div class="carousel-caption d-none d-md-block text-light">
-                        <h3>Experiences with expert tour guides</h3>
+                        <h3 style="text-shadow: 2px 2px 5px red;">Experiences with expert tour guides</h3>
                         <p></p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block text-center w-50 h-70 carousel-Image" src="../assets/slider3.jpg">
+                    <img class="d-block text-center w-100 h-70 carousel-Image" src="../assets/slider3.jpg">
                     <div class="carousel-caption d-none d-md-block text-light">
-                        <h3>local insights</h3>
+                        <h3 style="text-shadow: 2px 2px 5px red;">Local insights</h3>
                         <p></p>
                     </div>
                 </div>
