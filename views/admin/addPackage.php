@@ -62,6 +62,10 @@ include_once('../../functions/checkSession.php');
                     <label>Overview</label>
                     <textarea class="form-control" name="overview" id="overview" cols="30" rows="15" ></textarea>
                 </div>
+                <div class="col-md-12">
+                    <label>Details</label>
+                    <textarea class="form-control" name="details" id="details" cols="30" rows="15" ></textarea>
+                </div>
                 <div class="col-md-12 my-3">
                     <button type="button" onclick="addPackage()" class="btn btn-primary"style="width:100%;">Add Package</button>
                 </div>
@@ -70,11 +74,22 @@ include_once('../../functions/checkSession.php');
     </div>
 </body>
 <script>
-let editor;
+let overviewEditor;
+let detailsEditor;
+
 ClassicEditor
-    .create( document.querySelector( 'textarea' ) )
+    .create( document.querySelector( '#overview' ) )
     .then( newEditor => {
-        editor = newEditor;
+        overviewEditor = newEditor;
+    } )
+    .catch( error => {
+        console.error( error );
+} );
+
+ClassicEditor
+    .create( document.querySelector( '#details' ) )
+    .then( newEditor => {
+        detailsEditor = newEditor;
     } )
     .catch( error => {
         console.error( error );
@@ -86,7 +101,8 @@ function addPackage(){
     var childPrice = document.getElementById('childPrice').value;
     var slots = document.getElementById('slots').value;
     var imageSRC = document.getElementById('imageSRC').value;
-    var overview = editor.getData();
+    var overview = overviewEditor.getData();
+    var details = detailsEditor.getData();
 
     var imageFullSrc = '../assets/'+ imageSRC;
 
@@ -101,6 +117,7 @@ function addPackage(){
             'slots' : slots,
             'imageSRC' : imageFullSrc,
             'overview' : overview,
+            'details' : details
         },
         success: function(data){
             swal({

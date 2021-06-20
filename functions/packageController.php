@@ -9,9 +9,10 @@ if(isset($_POST['addPackage'])){
     $slots = $_POST['slots'];
     $imageSRC = $_POST['imageSRC'];
     $overview = $_POST['overview'];
+    $details = $_POST['details'];
 
-    $sql = "INSERT INTO tourpackage(pkgTitle, pkgOverview, pkgPrice, pkgChildPrice, pkgSlots, pkgImageSrc) 
-    VALUES ('$title', '$overview','$adultPrice', '$childPrice', '$slots', '$imageSRC')";
+    $sql = "INSERT INTO tourpackage(pkgTitle, pkgOverview, pkgDetails,pkgPrice, pkgChildPrice, pkgSlots, pkgImageSrc) 
+    VALUES ('$title', '$overview', '$details','$adultPrice', '$childPrice', '$slots', '$imageSRC')";
 
     mysqli_query($conn, $sql);
     mysqli_close($conn);
