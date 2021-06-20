@@ -36,4 +36,13 @@ if(isset($_POST['editPackage'])){
     mysqli_close($conn);
 }
 
+if(isset($_POST['deletePackage'])){
+    $packageID = $_POST['packageID'];
+
+    $sql = "DELETE FROM tourpackage WHERE id = $packageID";
+
+    mysqli_query($conn, $sql);
+    mysqli_close($conn);
+}
+
 ?> 

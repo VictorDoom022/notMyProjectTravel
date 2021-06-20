@@ -47,6 +47,7 @@ include_once('../../functions/checkSession.php');
                         <td>
                             <button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#moreDetailsID<?php echo $row['id']; ?>">More Details</button>
                             <a href="editPackageList.php?pkgID=<?php echo $row['id']; ?>" class="btn btn-sm btn-success">Edit</a>
+                            <button class="btn btn-sm btn-danger" onclick="deletePackage(<?php echo $row['id']; ?>)">Delete</button>
                         </td>
                     </tr>
 
@@ -100,4 +101,30 @@ include_once('../../functions/checkSession.php');
         </div>
     </div>
 </body>
+<script>
+function deletePackage(packageID){
+    swal({
+        icon: "warning",
+        title: "Warning",
+        text: "Are you sure you want to delete?",
+        buttons: true,
+        dangerMode: true,
+    }).then((confirmDelete) => {
+        $.ajax({
+            url: '../../functions/packageController.php',
+            type: 'POST',
+            data: { 
+                'deletePackage' : true,
+                'packageID' : packageID,
+            },
+            success: function(data){
+                location.reload();
+            },
+            error: function(){
+                // do nothing
+            }
+        });
+    });
+}
+</script>
 </html>
