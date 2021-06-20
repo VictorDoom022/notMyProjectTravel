@@ -112,7 +112,7 @@ require_once('../functions/connectDB.php');
 </body>
 <script>
 function redirect(locationID){
-    window.location.href = "tourDesc.php?locationID=" + locationID;
+    window.location.href = "tourDescNew.php?locationID=" + locationID;
 }
 </script>
 </html>
