@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('../functions/connectDB.php');
+include_once('../functions/checkSession.php');
 $packageID = $_GET['pkgID'];
 $adultQuantity = $_GET['adultQuantity'];
 $childrenQuantity = $_GET['childrenQuantity'];

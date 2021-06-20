@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('../functions/connectDB.php');
+include_once('../functions/checkSession.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
