@@ -10,7 +10,7 @@
     <title>Document</title>
     <style>
         .contactUsImage{
-            background-image: url('../assets/slider.jpg');
+            background-image: url('../assets/about us.jpg');
             height: 350px;
             background-position: 50% -125px;
             background-attachment: fixed;

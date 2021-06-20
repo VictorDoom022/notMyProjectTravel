@@ -15,7 +15,7 @@ require_once('../functions/connectDB.php');
     <title>Document</title>
     <style>
         .tripTitleImage{
-            background-image: url('../assets/slider.jpg');
+            background-image: url('../assets/trips.jpg');
             height: 350px;
             background-position: 50% -125px;
             background-attachment: fixed;
