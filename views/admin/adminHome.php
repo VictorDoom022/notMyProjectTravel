@@ -24,6 +24,9 @@ include_once('../../functions/checkSession.php');
                         <a href="userList.php" class="btn btn-dark">User Lists</a>
                         <a href="bookingList.php" class="btn btn-dark">Booking Lists</a>
                         <a href="enquiryList.php" class="btn btn-dark">Enquiry Lists</a>
+                        &nbsp;
+                        <a href="packageList.php" class="btn btn-primary">Product Lists</a>
+                        &nbsp;
                         <a href="../../functions/userController.php?logout" class="btn btn-danger">Log Out</a>
                     </div>
                 </div>
