@@ -24,7 +24,7 @@ include_once('../../functions/checkSession.php');
                     <td>No.</td>
                     <td>Name</td>
                     <td>E-mail</td>
-                    <td>Subect</td>
+                    <td>Subject</td>
                     <td>Message</td>
                 </tr>
                 
