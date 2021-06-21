@@ -74,7 +74,7 @@ if(mysqli_num_rows($result) > 0){
                         <tr>
                             <td>Children</td>
                             <td><?php echo $row['pkgChildPrice'] ?></td>
-                            <td><?php echo $childrenQuantity ?>.00</td>
+                            <td><?php echo $childrenQuantity ?></td>
                             <td><?php echo $childrenTotal ?>.00</td>
                         </tr>
                         <tr>

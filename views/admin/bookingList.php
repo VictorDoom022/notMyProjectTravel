@@ -95,10 +95,16 @@ include_once('../../functions/checkSession.php');
                                 <div class="modal-body">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            Name:
+                                            First Name:
                                         </div>
                                         <div class="col-md-3">
-                                            <?php echo $name; ?>
+                                            <?php echo $row['firstName']; ?>
+                                        </div>
+                                        <div class="col-md-3">
+                                            Last Name:
+                                        </div>
+                                        <div class="col-md-3">
+                                            <?php echo $row['lastName']; ?>
                                         </div>
                                         <div class="col-md-3">
                                             NRIC:
