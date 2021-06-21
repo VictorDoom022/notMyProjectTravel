@@ -69,7 +69,13 @@ include_once('../../functions/checkSession.php');
                         <td><?php echo $approveStatus; ?></td>
                         <td>
                             <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#moreDetailsID<?php echo $row['bookID']; ?>">More Details</button>
-                            <button class="btn btn-sm btn-success" onclick="toggleBooking(<?php echo $row['bookID']; ?>, <?php echo $row['bookApprove'] ?>, <?php echo $row['packageID']; ?>)">Approve/Not Approve</button>
+                            <button class="btn btn-sm btn-success" onclick="toggleBooking(<?php echo $row['bookID']; ?>, <?php echo $row['bookApprove'] ?>, <?php echo $row['packageID']; ?>)">
+                                <?php if($row['bookApprove'] == 0 || $row['bookApprove'] ==2){?>
+                                    Approve
+                                <?php }else{ ?>
+                                    Not Approve
+                                <?php } ?>
+                            </button>
                             <?php if($_SESSION['editMode'] == 1){ ?>
                                 <button class="btn btn-sm btn-danger" onclick="deleteBooking(<?php echo $row['bookID']; ?>)">Delete</button>
                             <?php
