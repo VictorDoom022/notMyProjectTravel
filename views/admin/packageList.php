@@ -22,7 +22,7 @@ include_once('../../functions/checkSession.php');
             <table class="table table-hover table-responsive">
                 <tr class="table-dark">
                     <td>No.</td>
-                    <td>Title</td>
+                    <td>Package Name</td>
                     <td>Adult Price</td>
                     <td>Children Price</td>
                     <td>Slots Available</td>
