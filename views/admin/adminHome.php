@@ -29,7 +29,7 @@ if(mysqli_num_rows($result) > 0){
                 <div class="card text-center px-2">
                     <h3 class="card-title">Admin Panel</h3>
                     <div class="d-grid gap-2">
-                        <a href="userList.php" class="btn btn-dark">User Lists</a>
+                        <a href="userList.php" class="btn btn-dark" style="display:none;">User Lists</a>
                         <a href="bookingList.php" class="btn btn-dark">Booking Lists</a>
                         <a href="enquiryList.php" class="btn btn-dark">Enquiry Lists</a>
                         &nbsp;
