@@ -44,6 +44,7 @@ include_once('../../functions/checkSession.php');
                     bookinglist.bookAdultQuantity AS adultQuantity,
                     bookinglist.bookChildQuantity AS childQuantity,
                     bookinglist.bookPaymentMethod AS paymentMethod,
+                    bookinglist.pkgID AS packageID,
                     bookinglist.bookApprove AS bookApprove
                     FROM bookinglist LEFT JOIN tourpackage ON bookinglist.pkgID = tourpackage.id LEFT JOIN users ON users.id = bookingList.userID";
                     $result = mysqli_query($conn, $sql);
@@ -68,7 +69,7 @@ include_once('../../functions/checkSession.php');
                         <td><?php echo $approveStatus; ?></td>
                         <td>
                             <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#moreDetailsID<?php echo $row['bookID']; ?>">More Details</button>
-                            <button class="btn btn-sm btn-success" onclick="toggleBooking(<?php echo $row['bookID']; ?>, <?php echo $row['bookApprove'] ?>)">Approve/Not Approve</button>
+                            <button class="btn btn-sm btn-success" onclick="toggleBooking(<?php echo $row['bookID']; ?>, <?php echo $row['bookApprove'] ?>, <?php echo $row['packageID']; ?>)">Approve/Not Approve</button>
                             <?php if($_SESSION['editMode'] == 1){ ?>
                                 <button class="btn btn-sm btn-danger" onclick="deleteBooking(<?php echo $row['bookID']; ?>)">Delete</button>
                             <?php
@@ -183,7 +184,7 @@ function deleteBooking(bookingID){
     });
 }
 
-function toggleBooking(bookingID, bookStatus){
+function toggleBooking(bookingID, bookStatus, packageID){
     var bookStatusCode = bookStatus==0||bookStatus==2 ? 1 :2; 
     swal({
         icon: "warning",
@@ -198,7 +199,8 @@ function toggleBooking(bookingID, bookStatus){
             data: { 
                 'approveBook' : true,
                 'bookingID' : bookingID,
-                'bookStatusCode' : bookStatusCode
+                'bookStatusCode' : bookStatusCode,
+                'packageID' : packageID
             },
             success: function(data){
                location.reload();

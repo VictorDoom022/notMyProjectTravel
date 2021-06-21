@@ -61,6 +61,7 @@ include_once('../functions/checkSession.php');
                 bookinglist.bookPaymentMethod AS paymentMethod,
                 bookinglist.bookSetDate AS bookSetDate,
                 bookinglist.bookApprove AS bookApprove,
+                bookinglist.pkgID AS packageID,
                 tourpackage.pkgTitle AS pkgTitle
                 FROM bookinglist LEFT JOIN tourpackage ON bookinglist.pkgID = tourpackage.id WHERE userID =".$_SESSION['user_id'];
                 $result = mysqli_query($conn, $sql);
@@ -84,7 +85,7 @@ include_once('../functions/checkSession.php');
                     <td><?php echo $approveStatus; ?></td>
                     <td>
                         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#moreDetailsID<?php echo $row['bookID']; ?>">More Details</button>
-                        <button class="btn btn-sm btn-danger" onclick="cancelBooking(<?php echo $row['bookID']; ?>)">Cancel Booking</button>
+                        <button class="btn btn-sm btn-danger" onclick="cancelBooking(<?php echo $row['bookID']; ?>, '<?php echo $row['packageID']; ?>')">Cancel Booking</button>
                     </td>
                 </tr>
 
@@ -175,7 +176,7 @@ include_once('../functions/checkSession.php');
     <!-- end of footer section -->
 </body>
 <script>
-function cancelBooking(bookingID){
+function cancelBooking(bookingID, packageID){
     swal({
         icon: "warning",
         title: "Warning",
@@ -189,6 +190,7 @@ function cancelBooking(bookingID){
             data: { 
                 'cancelBook' : true,
                 'bookingID' : bookingID,
+                'packageID' : packageID,
             },
             success: function(data){
                 location.reload();
