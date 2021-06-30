@@ -127,7 +127,7 @@ include_once('../../functions/checkSession.php');
                                         <div class="col-md-3">
                                             Address:
                                         </div>
-                                        <div class="col-md-9">
+                                        <div class="col-md-3">
                                             <?php echo $row['address']; ?>
                                         </div>
                                         <div class="col-md-3">
